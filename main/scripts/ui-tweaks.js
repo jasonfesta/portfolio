@@ -1,9 +1,22 @@
 (function () {
   var PAGE_TITLE_TEXT = "Mango Clips";
   var HERO_HEADLINE_PREFIX = "AI UGC that actually looks ";
-  var HERO_HEADLINE_WORDS = ["human.", "real.", "legit.", "sweet.", "tasty.", "yum."];
+  var HERO_HEADLINE_WORDS = ["human.", "yummy.", "tasty.", "real legit.", "no cap.", "six seven.", "organic."];
   var HERO_DESCRIPTION_TEXT =
     "Send us a few photos. Get 50+ creator-style videos that look like real people shot them — across every major AI model, in under 24 hours. Yes, it's AI. No, your buyers won't be able to tell.";
+  var MANGO_OVERLAY_POST = {
+    title: "Mango",
+    subtitle: "AI UGC campaign post",
+    viewsLabel: "52M+ views",
+    stats: [
+      { value: "10", label: "total creators" },
+      { value: "120", label: "day campaign" },
+      { value: "52M+", label: "total views" },
+      { value: "90k", label: "total downloads" },
+      { value: "$1.33", label: "CPI" },
+    ],
+  };
+  var MANGO_CARD_VIEW_COUNTS = ["5.8M views", "3.1M views", "1.7M views", "1.5M views", "1.4M views", "900K+ views"];
   var DISCORD_SUPPORT_URL = "https://discord.gg/4VA8F58WaQ";
   var MANGO_STICKER_URL =
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRscHNiZndtOG54b3l0eXhoMzlscGE2bzRhaWRxMHB3NTN5MHVjbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/L2l4HpbpRw4TeRfYVl/giphy.webp";
@@ -484,28 +497,49 @@
 
     var packageCards = [
       {
-        title: "Starter - 25 UGC Posts",
-        description: "Mix of 25 Forward Facing, Talking Head, Carsourel per month.",
+        title: "25 UGC Posts",
+        description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "starter",
         videoSrc: "/assets/playkit/pk-01.mp4",
         ctaLabel: "Starter - $99",
+        bullets: [
+          "📅 25 Posts Per Month",
+          "🧑‍🎨 25 Unique AI Creators",
+          "📱 Forward Facing",
+          "🎤 Talking Head",
+          "🎞️ Carousel",
+        ],
       },
       {
-        title: "Go Get It - 100 UGC Posts",
-        description: "Mix of 100 Forward Facing, Talking Head, Carsourel per month.",
+        title: "100 UGC Posts",
+        description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "go_get_it",
         videoSrc: "/assets/playkit/pk-02.mp4",
         ctaLabel: "Go Get It - $299",
+        bullets: [
+          "📅 100 Posts Per Month",
+          "🧑‍🎨 100 Unique AI Creators",
+          "📱 Forward Facing",
+          "🎤 Talking Head",
+          "🎞️ Carousel",
+        ],
       },
       {
-        title: "Blast Off - 500 UGC Posts",
-        description: "Mix of 500 Forward Facing, Talking Head, Carsourel per month.",
+        title: "500 UGC Posts",
+        description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "blast_off",
         videoSrc: "/assets/playkit/pk-03.mp4",
         ctaLabel: "Blast Off - $499",
+        bullets: [
+          "📅 500 Posts Per Month",
+          "🧑‍🎨 500 Unique AI Creators",
+          "📱 Forward Facing",
+          "🎤 Talking Head",
+          "🎞️ Carousel",
+        ],
       },
       {
         title: "Chat With Us",
@@ -527,6 +561,26 @@
         var cardClass = item.isSolidCta
           ? "ugc-package-card ugc-package-card--cta"
           : "ugc-package-card";
+        var bulletsHtml =
+          item.bullets && item.bullets.length
+            ? '<ul class="ugc-package-bullets">' +
+              item.bullets
+                .map(function (bullet) {
+                  return "<li>" + bullet + "</li>";
+                })
+                .join("") +
+              "</ul>"
+            : "";
+        var topDetailsHtml =
+          item.topDetails && item.topDetails.length
+            ? '<div class="ugc-package-top-details">' +
+              item.topDetails
+                .map(function (detail) {
+                  return '<span class="ugc-package-detail-chip">' + detail + "</span>";
+                })
+                .join("") +
+              "</div>"
+            : "";
 
         return (
           '<li class="ugc-package-item">' +
@@ -540,6 +594,7 @@
           cardClass +
           '">' +
           media +
+          topDetailsHtml +
           '    <div class="ugc-package-copy">' +
           '      <p class="ugc-package-title">' +
           item.title +
@@ -547,6 +602,7 @@
           '      <p class="ugc-package-subtitle">' +
           item.description +
           "</p>" +
+          bulletsHtml +
           '      <button type="button" class="ugc-package-cta">' +
           item.ctaLabel +
           "</button>" +
@@ -575,11 +631,11 @@
         var oldLabel = existing.querySelector("[data-ugc-logo]");
         if (oldLabel) {
           oldLabel.outerHTML =
-            '<span data-ugc-logo-image class="ugc-top-logo-mark" role="img" aria-label="Mangos sticker logo"></span>';
+            '<span data-ugc-logo-image class="ugc-top-logo-mark" role="img" aria-label="mango sticker logo"></span>';
         }
       } else {
         logoMark.textContent = "";
-        logoMark.setAttribute("aria-label", "Mangos sticker logo");
+        logoMark.setAttribute("aria-label", "mango sticker logo");
       }
       var discord = existing.querySelector("[data-ugc-discord]");
       var schedule = existing.querySelector("[data-ugc-schedule]");
@@ -598,7 +654,7 @@
     header.innerHTML =
       '<div class="mx-auto w-full max-w-5xl px-6 sm:px-10 lg:px-16">' +
       '  <div class="flex items-center justify-between gap-4">' +
-      '    <span data-ugc-logo-image class="ugc-top-logo-mark" role="img" aria-label="Mangos sticker logo"></span>' +
+      '    <span data-ugc-logo-image class="ugc-top-logo-mark" role="img" aria-label="mango sticker logo"></span>' +
       '    <div class="flex items-center gap-2">' +
       '      <button data-ugc-schedule type="button" class="inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Book a call</button>' +
       '      <button data-ugc-discord type="button" class="inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Support</button>' +
@@ -929,6 +985,7 @@
       }
 
       card.setAttribute("data-portfolio-href", model.href || "");
+      card.setAttribute("data-ugc-views", MANGO_CARD_VIEW_COUNTS[idx % MANGO_CARD_VIEW_COUNTS.length]);
       card.setAttribute("title", model.title || "Portfolio");
       card.setAttribute("tabindex", "0");
       card.style.cursor = "pointer";
@@ -1234,7 +1291,14 @@
     overlay.innerHTML =
       '<button type="button" class="ugc-example-close" aria-label="Close example overlay">×</button>' +
       '<div class="ugc-example-shell">' +
-      '  <div class="ugc-example-media-wrap"></div>' +
+      '  <section class="ugc-example-post">' +
+      '    <h3 class="ugc-example-post-title" data-ugc-post-title></h3>' +
+      '    <p class="ugc-example-post-subtitle" data-ugc-post-subtitle></p>' +
+      '    <div class="ugc-example-post-stats" data-ugc-post-stats></div>' +
+      "  </section>" +
+      '  <div class="ugc-example-media-wrap">' +
+      '    <p class="ugc-example-views" data-ugc-post-views></p>' +
+      "  </div>" +
       "</div>";
     document.body.appendChild(overlay);
 
@@ -1253,7 +1317,11 @@
     overlay.classList.remove("open");
     document.body.classList.remove("reader-open");
     var wrap = overlay.querySelector(".ugc-example-media-wrap");
-    if (wrap) wrap.innerHTML = "";
+    if (wrap) {
+      qsa(".ugc-example-media", wrap).forEach(function (node) {
+        node.remove();
+      });
+    }
   }
 
   function openExampleOverlay(portfolioCard) {
@@ -1261,7 +1329,33 @@
     var overlay = ensureExampleOverlay();
     var wrap = overlay.querySelector(".ugc-example-media-wrap");
     if (!wrap) return;
-    wrap.innerHTML = "";
+    qsa(".ugc-example-media", wrap).forEach(function (node) {
+      node.remove();
+    });
+    var postTitle = overlay.querySelector("[data-ugc-post-title]");
+    var postSubtitle = overlay.querySelector("[data-ugc-post-subtitle]");
+    var postStats = overlay.querySelector("[data-ugc-post-stats]");
+    var postViews = overlay.querySelector("[data-ugc-post-views]");
+    if (postTitle) postTitle.textContent = MANGO_OVERLAY_POST.title;
+    if (postSubtitle) postSubtitle.textContent = MANGO_OVERLAY_POST.subtitle;
+    var cardViews = portfolioCard.getAttribute("data-ugc-views") || MANGO_OVERLAY_POST.viewsLabel;
+    if (postViews) postViews.textContent = cardViews;
+    if (postStats) {
+      postStats.innerHTML = MANGO_OVERLAY_POST.stats
+        .map(function (item) {
+          return (
+            '<div class="ugc-example-post-stat">' +
+            '  <p class="ugc-example-post-stat-value">' +
+            item.value +
+            "</p>" +
+            '  <p class="ugc-example-post-stat-label">' +
+            item.label +
+            "</p>" +
+            "</div>"
+          );
+        })
+        .join("");
+    }
 
     var sourceVideo = portfolioCard.querySelector("video");
     var sourceImage = portfolioCard.querySelector("img");
@@ -1330,7 +1424,25 @@
   function startObserver() {
     var scheduled = false;
     var suppressUntil = 0;
+    var stablePasses = 0;
+    var stopped = false;
+    var root = document.querySelector("main");
+    if (!root) return;
+
+    function isSurfaceStable() {
+      return !!(
+        document.getElementById("ugc-top-header") &&
+        document.getElementById("ugc-headline-area") &&
+        document.getElementById("ugc-scrolling-showcase") &&
+        document.querySelector("#products .ugc-package-card") &&
+        document.querySelector("#inspiration [role='button'] > .grid > div") &&
+        !document.querySelector("#about") &&
+        !document.querySelector("#writing")
+      );
+    }
+
     var observer = new MutationObserver(function (mutations) {
+      if (stopped) return;
       var onlyHeroWordMutations = mutations.length > 0 && mutations.every(function (mutation) {
         var node = mutation.target;
         var element = node && node.nodeType === 1 ? node : node && node.parentElement;
@@ -1344,13 +1456,27 @@
         scheduled = false;
         applyHomeSurface();
         suppressUntil = Date.now() + 220;
+        if (isSurfaceStable()) {
+          stablePasses += 1;
+          if (stablePasses >= 2) {
+            observer.disconnect();
+            stopped = true;
+          }
+        }
       });
     });
-    observer.observe(document.documentElement, {
+    observer.observe(root, {
       childList: true,
       subtree: true,
       attributes: false,
     });
+
+    // Hard-stop observer after initial hydration window to prevent perpetual rerenders.
+    setTimeout(function () {
+      if (stopped) return;
+      observer.disconnect();
+      stopped = true;
+    }, 5000);
   }
 
   installReaderEvents();

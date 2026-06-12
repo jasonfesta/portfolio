@@ -59,6 +59,7 @@ footer .mt-3.flex.w-full.items-center.justify-center.gap-6.text-\[15px\].trackin
 [role="button"][aria-label*="Expand inspiration map"] > .grid > div {
   aspect-ratio: 5 / 8 !important;
   border: var(--ugc-stroke-unified);
+  border-radius: 24px !important;
   position: relative;
   transition:
     transform 260ms ease,
@@ -281,28 +282,103 @@ body.reader-open {
 }
 
 .ugc-example-shell {
-  width: min(92vw, 420px);
+  width: min(88vw, 680px);
+}
+
+.ugc-example-post {
+  margin: 0 0 18px;
+}
+
+.ugc-example-post-title {
+  margin: 0;
+  color: #111;
+  font-size: clamp(34px, 6vw, 46px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+.ugc-example-post-subtitle {
+  margin: 8px 0 0;
+  color: rgba(17, 17, 17, 0.8);
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.ugc-example-post-stats {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ugc-example-post-stat {
+  padding: 0;
+}
+
+.ugc-example-post-stat-value {
+  margin: 0;
+  color: #111;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 900;
+}
+
+.ugc-example-post-stat-label {
+  margin: 2px 0 0;
+  color: rgba(17, 17, 17, 0.7);
+  font-size: 11px;
+  line-height: 1.15;
+  font-weight: 700;
 }
 
 .ugc-example-media-wrap {
-  width: 100%;
+  position: relative;
+  width: min(100%, 332px);
+  margin: 72px auto 0;
+}
+
+.ugc-example-views {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 3;
+  margin: 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  background: rgba(0, 0, 0, 0.58);
+  border-radius: 999px;
+  padding: 7px 11px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
 }
 
 .ugc-example-media {
   display: block;
   width: 100%;
-  max-height: min(82vh, 860px);
-  object-fit: contain;
-  border-radius: 20px;
-  border: var(--ugc-stroke-unified);
+  aspect-ratio: 9 / 16;
+  max-height: min(62vh, 620px);
+  object-fit: cover;
+  border-radius: 32px;
+  border: 0;
   box-shadow: 0 18px 44px -18px rgba(0, 0, 0, 0.8);
   background: #111;
+}
+
+@media (max-width: 639px) {
+  .ugc-example-post-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .ugc-example-close {
   position: fixed;
   top: 18px;
-  left: 18px;
+  right: 18px;
   z-index: 1301;
   display: inline-flex;
   align-items: center;
@@ -666,7 +742,7 @@ body.reader-open {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .ugc-package-card--cta::before {
@@ -706,6 +782,19 @@ body.reader-open {
   opacity: 1;
 }
 
+/* Keep desktop mouse interactions consistently active. */
+#products .ugc-package-card,
+#inspiration [role="button"][aria-label*="Expand inspiration map"] > .grid > div,
+#ugc-top-header [data-ugc-schedule],
+#ugc-top-header [data-ugc-discord],
+#ugc-headline-area [data-ugc-headline-cta],
+#ugc-headline-area [data-ugc-headline-discord],
+#socials .divide-y a,
+.ugc-example-close {
+  cursor: pointer !important;
+  pointer-events: auto;
+}
+
 .ugc-package-fade {
   display: none;
 }
@@ -715,7 +804,44 @@ body.reader-open {
   inset-inline: 0;
   bottom: 0;
   z-index: 2;
-  padding: 12px 14px;
+  padding: 16px 16px;
+  text-align: left;
+}
+
+.ugc-package-card:not(.ugc-package-card--cta) .ugc-package-copy {
+  top: 34%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 22px 20px;
+}
+
+.ugc-package-top-details {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ugc-package-detail-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  border-radius: 999px;
+  padding: 7px 11px;
+  background: rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-align: left;
 }
 
 .ugc-package-card--cta .ugc-package-copy {
@@ -725,8 +851,10 @@ body.reader-open {
   padding: 18px 16px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
   gap: 8px;
+  text-align: left;
   z-index: 2;
 }
 
@@ -736,6 +864,15 @@ body.reader-open {
   font-size: 13px;
   font-weight: 600;
   letter-spacing: -0.01em;
+}
+
+.ugc-package-card:not(.ugc-package-card--cta) .ugc-package-title {
+  color: #fff !important;
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
 }
 
 .ugc-package-card--cta .ugc-package-title {
@@ -752,6 +889,22 @@ body.reader-open {
   color: rgba(255, 255, 255, 0.78);
   font-size: 12px;
   line-height: 1.28;
+  text-align: left;
+}
+
+.ugc-package-bullets {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+  line-height: 1.45;
+  font-weight: 600;
+  text-align: left;
+}
+
+.ugc-package-bullets li + li {
+  margin-top: 7px;
 }
 
 .ugc-package-card--cta .ugc-package-subtitle {
@@ -760,10 +913,15 @@ body.reader-open {
   line-height: 1.25 !important;
   font-family: inherit !important;
   font-weight: 500 !important;
+  text-align: left !important;
 }
 
 .ugc-package-cta {
   margin-top: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
   border: var(--ugc-stroke-unified);
   border-radius: 999px;
   background: #ffe447;
@@ -771,7 +929,9 @@ body.reader-open {
   font-size: 11px;
   font-weight: 600;
   line-height: 1;
+  text-align: center;
   padding: 7px 11px;
+  cursor: pointer !important;
 }
 
 /* Global desktop rail tightening (~250px narrower than max-w-5xl). */
@@ -870,6 +1030,27 @@ main .text-foreground,
   font-weight: 800 !important;
   color: #111 !important;
   border: var(--ugc-stroke-unified) !important;
+  background: rgba(255, 191, 77, 0.45);
+  transition:
+    background-color 220ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+#ugc-top-header [data-ugc-discord]:hover,
+#ugc-top-header [data-ugc-schedule]:hover,
+#ugc-headline-area [data-ugc-headline-discord]:hover,
+#ugc-headline-area [data-ugc-headline-cta]:hover {
+  background: rgba(255, 191, 77, 0.62);
+  opacity: 0.95;
+}
+
+#ugc-top-header [data-ugc-discord]:focus-visible,
+#ugc-top-header [data-ugc-schedule]:focus-visible,
+#ugc-headline-area [data-ugc-headline-discord]:focus-visible,
+#ugc-headline-area [data-ugc-headline-cta]:focus-visible {
+  background: rgba(255, 191, 77, 0.62);
+  opacity: 0.95;
 }
 
 #socials .divide-y a .min-w-0.flex-1 span {
@@ -949,12 +1130,7 @@ footer .text-muted-foreground {
   max-width: 56ch;
   font-family: inherit !important;
   letter-spacing: normal !important;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  min-height: calc(3 * 1.35em);
-  max-height: calc(3 * 1.35em);
+  white-space: normal;
 }
 
 @media (max-width: 639px) {
@@ -963,10 +1139,51 @@ footer .text-muted-foreground {
   }
 
   #ugc-headline-area [data-ugc-headline-line2] {
-    max-width: 33ch !important;
-    -webkit-line-clamp: 4;
-    min-height: calc(4 * 1.35em);
-    max-height: calc(4 * 1.35em);
+    max-width: 100% !important;
+    white-space: normal;
+  }
+
+  /* Mobile bundles: make card content larger and occupy more visual area. */
+  #products .ugc-package-card:not(.ugc-package-card--cta) .ugc-package-copy {
+    top: 34%;
+    inset-inline: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 22px 20px;
+  }
+
+  #products .ugc-package-card:not(.ugc-package-card--cta) .ugc-package-title {
+    font-size: 30px !important;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+
+  #products .ugc-package-card:not(.ugc-package-card--cta) .ugc-package-bullets {
+    font-size: 15px;
+    line-height: 1.45;
+    margin-top: 0;
+  }
+
+  #products .ugc-package-card:not(.ugc-package-card--cta) .ugc-package-bullets li + li {
+    margin-top: 7px;
+  }
+
+  #products .ugc-package-top-details {
+    gap: 6px;
+  }
+
+  #products .ugc-package-detail-chip {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  /* Mobile: make Blast Off CTA span card width. */
+  #products .ugc-packages-grid .ugc-package-item:nth-child(3) .ugc-package-cta {
+    width: 100%;
+    min-width: 0;
   }
 }
 
