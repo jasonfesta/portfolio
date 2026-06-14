@@ -1118,7 +1118,7 @@ body.reader-open {
 :root {
   --site-rail-max: 628px;
   --ugc-display-font: "DEMO JAF Lapture Display Regular", "Times New Roman", serif;
-  --ugc-theme-bg: #ffbf4d;
+  --ugc-theme-bg: #FFB300;
   --ugc-theme-fg: #121212;
   --ugc-theme-muted: rgba(18, 18, 18, 0.72);
   --ugc-button-height: 36px;

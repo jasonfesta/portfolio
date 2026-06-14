@@ -10,36 +10,36 @@
   };
   var MANGO_OVERLAY_CAMPAIGN_PROFILES = [
     {
-      creators: 25,
+      creators: 18,
+      day: 7,
+      totalViews: "118K",
+      totalDownloads: "410",
+      cpm: "$0.74",
+      viewsLabel: "118K views",
+    },
+    {
+      creators: 26,
       day: 10,
-      totalViews: "160K",
-      totalDownloads: "640",
-      cpm: "$0.58",
-      viewsLabel: "160K views",
+      totalViews: "142K",
+      totalDownloads: "560",
+      cpm: "$0.68",
+      viewsLabel: "142K views",
     },
     {
-      creators: 50,
+      creators: 32,
+      day: 12,
+      totalViews: "176K",
+      totalDownloads: "690",
+      cpm: "$0.62",
+      viewsLabel: "176K views",
+    },
+    {
+      creators: 41,
       day: 14,
-      totalViews: "380K",
-      totalDownloads: "1.9K",
-      cpm: "$0.52",
-      viewsLabel: "380K views",
-    },
-    {
-      creators: 250,
-      day: 21,
-      totalViews: "2.2M",
-      totalDownloads: "12.1K",
-      cpm: "$0.39",
-      viewsLabel: "2.2M views",
-    },
-    {
-      creators: 500,
-      day: 30,
-      totalViews: "4.8M",
-      totalDownloads: "28.8K",
-      cpm: "$0.33",
-      viewsLabel: "4.8M views",
+      totalViews: "198K",
+      totalDownloads: "860",
+      cpm: "$0.57",
+      viewsLabel: "198K views",
     },
   ];
   var DISCORD_SUPPORT_URL = "https://discord.gg/4VA8F58WaQ";
@@ -47,24 +47,86 @@
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRscHNiZndtOG54b3l0eXhoMzlscGE2bzRhaWRxMHB3NTN5MHVjbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/L2l4HpbpRw4TeRfYVl/giphy.webp";
   var STRIPE_DEFAULT_CHECKOUT_URL = "https://stripe.com";
   var PLAYKIT_VIDEO_SOURCES = [
-    "/assets/playkit/pk-01.mp4",
-    "/assets/playkit/pk-02.mp4",
-    "/assets/playkit/pk-03.mp4",
-    "/assets/playkit/pk-04.mp4",
-    "/assets/playkit/pk-05.mp4",
-    "/assets/playkit/pk-06.mp4",
-    "/assets/playkit/pk-07.mp4",
-    "/assets/playkit/pk-08.mp4",
+    "/assets/playkit/pk-01.webm",
+    "/assets/playkit/pk-02.webm",
+    "/assets/playkit/pk-03.webm",
+    "/assets/playkit/pk-04.webm",
+    "/assets/playkit/pk-05.webm",
+    "/assets/playkit/pk-06.webm",
+    "/assets/playkit/pk-07.webm",
+    "/assets/playkit/pk-08.webm",
+  ];
+  var TOP_CAROUSEL_VIDEO_SOURCES = [
+    "/assets/playkit/pk-01.webm",
+    "/assets/mangos/mango-yacht.webm",
+    "/assets/playkit/pk-02.webm",
+    "/assets/mangos/mango-corvette.webm",
+    "/assets/playkit/pk-03.webm",
+    "/assets/mangos/mango-rick-obey-yacht.webm",
+    "/assets/playkit/pk-04.webm",
+    "/assets/mangos/mango-missouri-estate.webm",
+    "/assets/playkit/pk-05.webm",
+    "/assets/mangos/mango-downey-hyundai.webm",
+    "/assets/playkit/pk-06.webm",
+    "/assets/mangos/mango-mcallen-home.webm",
+    "/assets/playkit/pk-07.webm",
+    "/assets/mangos/mango-prosper-gated.webm",
+    "/assets/playkit/pk-08.webm",
+  ];
+  var TOP_CAROUSEL_UNIQUE_VIDEO_SOURCES = TOP_CAROUSEL_VIDEO_SOURCES.filter(function (src, idx, arr) {
+    return arr.indexOf(src) === idx;
+  });
+  var MANGO_ADDITIONAL_VIDEO_SOURCES = [
+    "/assets/mangos/mango-yacht.webm",
+    "/assets/mangos/mango-corvette.webm",
+    "/assets/mangos/mango-missouri-estate.webm",
+    "/assets/mangos/mango-downey-hyundai.webm",
+    "/assets/mangos/mango-mcallen-home.webm",
+    "/assets/mangos/mango-prosper-gated.webm",
+    "/assets/mangos/mango-rick-obey-yacht.webm",
+  ];
+  var MANGO_GRID_VIDEO_SOURCES = [
+    "/assets/playkit/pk-01.webm",
+    "/assets/mangos/mango-yacht.webm",
+    "/assets/playkit/pk-02.webm",
+    "/assets/mangos/mango-corvette.webm",
+    "/assets/playkit/pk-03.webm",
+    "/assets/mangos/mango-missouri-estate.webm",
+    "/assets/playkit/pk-04.webm",
+    "/assets/mangos/mango-downey-hyundai.webm",
+    "/assets/playkit/pk-05.webm",
+    "/assets/mangos/mango-mcallen-home.webm",
+    "/assets/playkit/pk-06.webm",
+    "/assets/mangos/mango-prosper-gated.webm",
+    "/assets/playkit/pk-07.webm",
+    "/assets/mangos/mango-rick-obey-yacht.webm",
+    "/assets/playkit/pk-08.webm",
   ];
   var PLAYKIT_MANGO_TITLE_BY_SOURCE = {
-    "/assets/playkit/pk-01.mp4": "Forward Facing",
-    "/assets/playkit/pk-02.mp4": "Point Of View",
-    "/assets/playkit/pk-03.mp4": "Talking Head",
-    "/assets/playkit/pk-04.mp4": "Carousel",
-    "/assets/playkit/pk-05.mp4": "Talking Head",
-    "/assets/playkit/pk-06.mp4": "Forward Facing",
-    "/assets/playkit/pk-07.mp4": "Point Of View",
-    "/assets/playkit/pk-08.mp4": "Talking Head",
+    "/assets/playkit/pk-01.webm": "Forward Facing",
+    "/assets/playkit/pk-02.webm": "Point Of View",
+    "/assets/playkit/pk-03.webm": "Talking Head",
+    "/assets/playkit/pk-04.webm": "Carousel",
+    "/assets/playkit/pk-05.webm": "Talking Head",
+    "/assets/playkit/pk-06.webm": "Forward Facing",
+    "/assets/playkit/pk-07.webm": "Point Of View",
+    "/assets/playkit/pk-08.webm": "Talking Head",
+    "/assets/mangos/mango-yacht.webm": "2004 Mangusta 72 Price Drop",
+    "/assets/mangos/mango-corvette.webm": "Cacti Corvette $9,900 Down",
+    "/assets/mangos/mango-missouri-estate.webm": "Missouri City 6,099 Sqft Tour",
+    "/assets/mangos/mango-downey-hyundai.webm": "Downey Hyundai Callback Hook",
+    "/assets/mangos/mango-mcallen-home.webm": "McAllen $385K Listing",
+    "/assets/mangos/mango-prosper-gated.webm": "Prosper Gated Mansion Tour",
+    "/assets/mangos/mango-rick-obey-yacht.webm": "So You Sell Boats? Hook",
+  };
+  var MANGO_VIEWS_BY_SOURCE = {
+    "/assets/mangos/mango-yacht.webm": "164K views",
+    "/assets/mangos/mango-corvette.webm": "189K views",
+    "/assets/mangos/mango-missouri-estate.webm": "152K views",
+    "/assets/mangos/mango-downey-hyundai.webm": "121K views",
+    "/assets/mangos/mango-mcallen-home.webm": "138K views",
+    "/assets/mangos/mango-prosper-gated.webm": "173K views",
+    "/assets/mangos/mango-rick-obey-yacht.webm": "181K views",
   };
 
   // Quick revert switch:
@@ -559,14 +621,15 @@
         description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "starter",
-        videoSrc: "/assets/playkit/pk-01.mp4",
+        videoSrc: "/assets/playkit/pk-01.webm",
         ctaLabel: "Starter - $99",
         bullets: [
           "📅 25 Posts Per Month",
-          "🧑‍🎨 25 Unique AI Creators",
+          "🧑‍🎨 5 Unique AI Creators",
           "📱 Forward Facing",
           "🎤 Talking Head",
           "🎞️ Carousel",
+          "👀 POV",
         ],
       },
       {
@@ -574,14 +637,15 @@
         description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "go_get_it",
-        videoSrc: "/assets/playkit/pk-02.mp4",
+        videoSrc: "/assets/mangos/mango-freeman-47.webm",
         ctaLabel: "Go Get It - $299",
         bullets: [
           "📅 100 Posts Per Month",
-          "🧑‍🎨 100 Unique AI Creators",
+          "🧑‍🎨 25 Unique AI Creators",
           "📱 Forward Facing",
           "🎤 Talking Head",
           "🎞️ Carousel",
+          "👀 POV",
         ],
       },
       {
@@ -589,28 +653,31 @@
         description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "blast_off",
-        videoSrc: "/assets/playkit/pk-03.mp4",
+        videoSrc: "/assets/mangos/mango-prosper-12m-home.webm",
         ctaLabel: "Blast Off - $499",
         bullets: [
           "📅 500 Posts Per Month",
-          "🧑‍🎨 500 Unique AI Creators",
+          "🧑‍🎨 50 Unique AI Creators",
           "📱 Forward Facing",
           "🎤 Talking Head",
           "🎞️ Carousel",
+          "👀 POV",
         ],
       },
       {
         title: "Need Scale?",
         description: "",
         href: DISCORD_SUPPORT_URL,
-        videoSrc: "/assets/playkit/pk-04.mp4",
+        videoSrc: "/assets/playkit/pk-04.webm",
         ctaLabel: "Chat With Us",
         bullets: [
           "📅 Flexible Volume",
+          "📦 Supports 25-500 Post Bundles",
           "🧑‍🎨 Custom AI Creator Mix",
           "📱 Forward Facing Variants",
           "🎤 Talking Head Variants",
           "🎞️ Carousel Variants",
+          "👀 POV Variants",
         ],
       },
     ];
@@ -793,11 +860,11 @@
     if (!products) return;
 
     var existing = document.getElementById("ugc-scrolling-showcase");
-    var cards = PLAYKIT_VIDEO_SOURCES.concat(PLAYKIT_VIDEO_SOURCES)
+    var cards = TOP_CAROUSEL_UNIQUE_VIDEO_SOURCES.concat(TOP_CAROUSEL_UNIQUE_VIDEO_SOURCES)
       .map(function (src, idx) {
         return (
           '<article class="ugc-scroll-card" aria-hidden="' +
-          (idx >= PLAYKIT_VIDEO_SOURCES.length ? "true" : "false") +
+          (idx >= TOP_CAROUSEL_UNIQUE_VIDEO_SOURCES.length ? "true" : "false") +
           '">' +
           '  <video data-ugc-lazy-src="' +
           src +
@@ -1006,7 +1073,7 @@
 
     var cards = qsa(":scope > div", grid);
     if (cards.length === 0) return;
-    var targetCount = 12;
+    var targetCount = MANGO_GRID_VIDEO_SOURCES.length;
 
     while (cards.length < targetCount) {
       var clone = cards[cards.length - 1].cloneNode(true);
@@ -1031,7 +1098,7 @@
         img.remove();
       });
 
-      var clipSrc = PLAYKIT_VIDEO_SOURCES[(idx * 5 + 2) % PLAYKIT_VIDEO_SOURCES.length];
+      var clipSrc = MANGO_GRID_VIDEO_SOURCES[idx % MANGO_GRID_VIDEO_SOURCES.length];
       var cardVideo = card.querySelector("video.ugc-example-video");
       if (!cardVideo) {
         cardVideo = document.createElement("video");
@@ -1055,7 +1122,7 @@
       var mangoTitle = PLAYKIT_MANGO_TITLE_BY_SOURCE[clipSrc] || MANGO_OVERLAY_POST.title;
       card.setAttribute("data-ugc-campaign-profile", String(campaignProfileIdx));
       card.setAttribute("data-ugc-mango-title", mangoTitle);
-      card.setAttribute("data-ugc-views", campaignProfile.viewsLabel);
+      card.setAttribute("data-ugc-views", MANGO_VIEWS_BY_SOURCE[clipSrc] || campaignProfile.viewsLabel);
       card.setAttribute("title", model.title || "Portfolio");
       card.setAttribute("tabindex", "0");
       card.style.cursor = "pointer";
