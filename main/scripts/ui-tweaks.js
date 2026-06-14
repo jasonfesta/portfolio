@@ -1,22 +1,47 @@
 (function () {
   var PAGE_TITLE_TEXT = "Mango Clips";
   var HERO_HEADLINE_PREFIX = "AI UGC that actually looks ";
-  var HERO_HEADLINE_WORDS = ["human.", "yummy.", "tasty.", "real legit.", "no cap.", "six seven.", "organic."];
+  var HERO_HEADLINE_WORDS = ["human.", "yummy.", "tasty.", "real.", "legit.", "no cap.", "six seven.", "organic."];
   var HERO_DESCRIPTION_TEXT =
-    "Send us a few photos. Get 50+ creator-style videos that look like real people shot them — across every major AI model, in under 24 hours. Yes, it's AI. No, your buyers won't be able to tell.";
+    "Send us a few photos or vids. Get 50+ creator-style videos that look like real people shot them — using the latest AI models, in under 24 hours. Yes, it's AI. No, your buyers won't be able to tell.";
   var MANGO_OVERLAY_POST = {
     title: "Mango",
-    subtitle: "AI UGC campaign post",
-    viewsLabel: "52M+ views",
-    stats: [
-      { value: "10", label: "total creators" },
-      { value: "120", label: "day campaign" },
-      { value: "52M+", label: "total views" },
-      { value: "90k", label: "total downloads" },
-      { value: "$1.33", label: "CPI" },
-    ],
+    subtitle: "AI UGC campaign post results",
   };
-  var MANGO_CARD_VIEW_COUNTS = ["5.8M views", "3.1M views", "1.7M views", "1.5M views", "1.4M views", "900K+ views"];
+  var MANGO_OVERLAY_CAMPAIGN_PROFILES = [
+    {
+      creators: 25,
+      day: 10,
+      totalViews: "160K",
+      totalDownloads: "640",
+      cpm: "$0.58",
+      viewsLabel: "160K views",
+    },
+    {
+      creators: 50,
+      day: 14,
+      totalViews: "380K",
+      totalDownloads: "1.9K",
+      cpm: "$0.52",
+      viewsLabel: "380K views",
+    },
+    {
+      creators: 250,
+      day: 21,
+      totalViews: "2.2M",
+      totalDownloads: "12.1K",
+      cpm: "$0.39",
+      viewsLabel: "2.2M views",
+    },
+    {
+      creators: 500,
+      day: 30,
+      totalViews: "4.8M",
+      totalDownloads: "28.8K",
+      cpm: "$0.33",
+      viewsLabel: "4.8M views",
+    },
+  ];
   var DISCORD_SUPPORT_URL = "https://discord.gg/4VA8F58WaQ";
   var MANGO_STICKER_URL =
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRscHNiZndtOG54b3l0eXhoMzlscGE2bzRhaWRxMHB3NTN5MHVjbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/L2l4HpbpRw4TeRfYVl/giphy.webp";
@@ -31,6 +56,16 @@
     "/assets/playkit/pk-07.mp4",
     "/assets/playkit/pk-08.mp4",
   ];
+  var PLAYKIT_MANGO_TITLE_BY_SOURCE = {
+    "/assets/playkit/pk-01.mp4": "Forward Facing",
+    "/assets/playkit/pk-02.mp4": "Point Of View",
+    "/assets/playkit/pk-03.mp4": "Talking Head",
+    "/assets/playkit/pk-04.mp4": "Carousel",
+    "/assets/playkit/pk-05.mp4": "Talking Head",
+    "/assets/playkit/pk-06.mp4": "Forward Facing",
+    "/assets/playkit/pk-07.mp4": "Point Of View",
+    "/assets/playkit/pk-08.mp4": "Talking Head",
+  };
 
   // Quick revert switch:
   // - true  => new layout structure using existing visual style language
@@ -361,15 +396,38 @@
   var heroHeadlineWordIndex = 0;
   var heroHeadlineWordIntervalId = null;
 
+  function markVideoReady(video) {
+    if (!video) return;
+    video.classList.remove("ugc-video-loading");
+    video.classList.add("ugc-video-ready");
+    video.setAttribute("data-ugc-video-ready", "true");
+  }
+
   function hydrateLazyVideo(video) {
     if (!video) return;
     var lazySrc = video.getAttribute("data-ugc-lazy-src");
     if (!lazySrc) return;
+    video.classList.add("ugc-video-loading");
+    video.classList.remove("ugc-video-ready");
+    video.removeAttribute("data-ugc-video-ready");
+    var onReady = function () {
+      markVideoReady(video);
+    };
+    video.addEventListener("loadeddata", onReady, { once: true });
+    video.addEventListener("canplay", onReady, { once: true });
     var currentSrc = video.getAttribute("src") || "";
     if (currentSrc !== lazySrc) {
       video.setAttribute("src", lazySrc);
       video.load();
     }
+    if (video.readyState >= 2) {
+      markVideoReady(video);
+    }
+    setTimeout(function () {
+      if (video.classList.contains("ugc-video-loading")) {
+        markVideoReady(video);
+      }
+    }, 1400);
     video.removeAttribute("data-ugc-lazy-src");
     var playPromise = video.play();
     if (playPromise && typeof playPromise.catch === "function") {
@@ -497,7 +555,7 @@
 
     var packageCards = [
       {
-        title: "25 UGC Posts",
+        title: "25 posts",
         description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "starter",
@@ -512,7 +570,7 @@
         ],
       },
       {
-        title: "100 UGC Posts",
+        title: "100 posts",
         description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "go_get_it",
@@ -527,7 +585,7 @@
         ],
       },
       {
-        title: "500 UGC Posts",
+        title: "500 posts",
         description: "",
         href: STRIPE_DEFAULT_CHECKOUT_URL,
         stripePlan: "blast_off",
@@ -542,11 +600,18 @@
         ],
       },
       {
-        title: "Chat With Us",
-        description: "Need custom support? Talk directly with our team.",
+        title: "Need Scale?",
+        description: "",
         href: DISCORD_SUPPORT_URL,
-        isSolidCta: true,
+        videoSrc: "/assets/playkit/pk-04.mp4",
         ctaLabel: "Chat With Us",
+        bullets: [
+          "📅 Flexible Volume",
+          "🧑‍🎨 Custom AI Creator Mix",
+          "📱 Forward Facing Variants",
+          "🎤 Talking Head Variants",
+          "🎞️ Carousel Variants",
+        ],
       },
     ];
 
@@ -640,7 +705,7 @@
       var discord = existing.querySelector("[data-ugc-discord]");
       var schedule = existing.querySelector("[data-ugc-schedule]");
       if (schedule) schedule.textContent = "Book a call";
-      if (discord) discord.textContent = "Support";
+      if (discord) discord.textContent = "Discord";
       existing.style.paddingTop = "20px";
       existing.style.paddingBottom = "20px";
       return;
@@ -657,7 +722,7 @@
       '    <span data-ugc-logo-image class="ugc-top-logo-mark" role="img" aria-label="mango sticker logo"></span>' +
       '    <div class="flex items-center gap-2">' +
       '      <button data-ugc-schedule type="button" class="inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Book a call</button>' +
-      '      <button data-ugc-discord type="button" class="inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Support</button>' +
+      '      <button data-ugc-discord type="button" class="inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Discord</button>' +
       "    </div>" +
       "  </div>" +
       "</div>";
@@ -687,7 +752,7 @@
         lineTwo.textContent = HERO_DESCRIPTION_TEXT;
       }
       if (cta) cta.textContent = "Book a call";
-      if (discord) discord.textContent = "Support";
+      if (discord) discord.textContent = "Discord";
       return;
     }
 
@@ -708,7 +773,7 @@
       '      <a data-ugc-headline-cta href="https://cal.com/jasonfesta" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-border/60 px-4 py-2 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Book a call</a>' +
       '      <a data-ugc-headline-discord href="' +
       DISCORD_SUPPORT_URL +
-      '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-border/60 px-4 py-2 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Support</a>' +
+      '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-border/60 px-4 py-2 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Discord</a>' +
       "    </div>" +
       "  </div>" +
       "</div>";
@@ -941,7 +1006,7 @@
 
     var cards = qsa(":scope > div", grid);
     if (cards.length === 0) return;
-    var targetCount = 16;
+    var targetCount = 12;
 
     while (cards.length < targetCount) {
       var clone = cards[cards.length - 1].cloneNode(true);
@@ -985,7 +1050,12 @@
       }
 
       card.setAttribute("data-portfolio-href", model.href || "");
-      card.setAttribute("data-ugc-views", MANGO_CARD_VIEW_COUNTS[idx % MANGO_CARD_VIEW_COUNTS.length]);
+      var campaignProfileIdx = idx % MANGO_OVERLAY_CAMPAIGN_PROFILES.length;
+      var campaignProfile = MANGO_OVERLAY_CAMPAIGN_PROFILES[campaignProfileIdx];
+      var mangoTitle = PLAYKIT_MANGO_TITLE_BY_SOURCE[clipSrc] || MANGO_OVERLAY_POST.title;
+      card.setAttribute("data-ugc-campaign-profile", String(campaignProfileIdx));
+      card.setAttribute("data-ugc-mango-title", mangoTitle);
+      card.setAttribute("data-ugc-views", campaignProfile.viewsLabel);
       card.setAttribute("title", model.title || "Portfolio");
       card.setAttribute("tabindex", "0");
       card.style.cursor = "pointer";
@@ -1336,12 +1406,23 @@
     var postSubtitle = overlay.querySelector("[data-ugc-post-subtitle]");
     var postStats = overlay.querySelector("[data-ugc-post-stats]");
     var postViews = overlay.querySelector("[data-ugc-post-views]");
-    if (postTitle) postTitle.textContent = MANGO_OVERLAY_POST.title;
+    var mangoTitle = (portfolioCard.getAttribute("data-ugc-mango-title") || "").trim();
+    var campaignProfileIdx = Number(portfolioCard.getAttribute("data-ugc-campaign-profile") || 0);
+    var campaignProfile =
+      MANGO_OVERLAY_CAMPAIGN_PROFILES[campaignProfileIdx % MANGO_OVERLAY_CAMPAIGN_PROFILES.length] ||
+      MANGO_OVERLAY_CAMPAIGN_PROFILES[0];
+    if (postTitle) postTitle.textContent = mangoTitle || MANGO_OVERLAY_POST.title;
     if (postSubtitle) postSubtitle.textContent = MANGO_OVERLAY_POST.subtitle;
-    var cardViews = portfolioCard.getAttribute("data-ugc-views") || MANGO_OVERLAY_POST.viewsLabel;
+    var cardViews = portfolioCard.getAttribute("data-ugc-views") || campaignProfile.viewsLabel;
     if (postViews) postViews.textContent = cardViews;
     if (postStats) {
-      postStats.innerHTML = MANGO_OVERLAY_POST.stats
+      postStats.innerHTML = [
+        { value: String(campaignProfile.creators), label: "Total AI Creators" },
+        { value: "Day " + String(campaignProfile.day), label: "Campaign Day" },
+        { value: campaignProfile.totalViews, label: "Total Views" },
+        { value: campaignProfile.totalDownloads, label: "Total Downloads" },
+        { value: campaignProfile.cpm, label: "CPM" },
+      ]
         .map(function (item) {
           return (
             '<div class="ugc-example-post-stat">' +
