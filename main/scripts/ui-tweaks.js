@@ -1154,6 +1154,77 @@
     if (heading) heading.textContent = "Motion";
   }
 
+  function ensureFounderSection() {
+    var socials = document.querySelector("#socials");
+    if (!socials) return;
+
+    var existing = document.getElementById("founder-story");
+    var founderVideoSrc = "/assets/mangos/mango-prosper-gated.webm";
+    var founderHeadline = "Meet Amber, your AI UGC manager.";
+    var founderParagraph =
+      "I manage a team of synthetic UGC creators — now over 5,000 strong across the US and Canada. Follow me for the latest models, make up, and mangos!";
+    var founderSignatureMarkup =
+      '<span class="ugc-founder-logo-mark" role="img" aria-label="Mango logo"></span>';
+
+    if (existing) {
+      var title = existing.querySelector("[data-founder-title]");
+      var headline = existing.querySelector("[data-founder-headline]");
+      var paragraph = existing.querySelector("[data-founder-text]");
+      var signature = existing.querySelector("[data-founder-signature]");
+      var video = existing.querySelector("video[data-founder-video]");
+      if (title) title.textContent = "About the founder";
+      if (headline) headline.textContent = founderHeadline;
+      if (paragraph) paragraph.textContent = founderParagraph;
+      if (signature) signature.innerHTML = founderSignatureMarkup;
+      if (video && video.getAttribute("data-ugc-lazy-src") !== founderVideoSrc) {
+        video.removeAttribute("src");
+        video.setAttribute("data-ugc-lazy-src", founderVideoSrc);
+      }
+      return;
+    }
+
+    var section = document.createElement("section");
+    section.id = "founder-story";
+    section.className = "py-8 sm:py-12 md:py-14 lg:py-16";
+    section.innerHTML =
+      '<div class="mx-auto w-full max-w-5xl px-6 sm:px-10 lg:px-16">' +
+      '  <div class="ugc-founder-layout">' +
+      '    <div class="ugc-founder-copy">' +
+      '      <h2 data-founder-title class="ugc-founder-title">About the founder</h2>' +
+      '      <h3 data-founder-headline class="ugc-founder-headline">' +
+      founderHeadline +
+      "</h3>" +
+      '      <p data-founder-text class="ugc-founder-text">' +
+      founderParagraph +
+      "</p>" +
+      '      <div data-founder-signature class="ugc-founder-signature">' +
+      founderSignatureMarkup +
+      "      </div>" +
+      "    </div>" +
+      '    <div class="ugc-founder-media-wrap">' +
+      '      <div class="ugc-founder-media-frame">' +
+      '        <video data-founder-video data-ugc-lazy-src="' +
+      founderVideoSrc +
+      '" autoplay muted loop playsinline preload="none" class="ugc-founder-media"></video>' +
+      "      </div>" +
+      '      <div class="ugc-founder-socials" aria-label="Founder social links">' +
+      '        <a class="ugc-founder-social-link" aria-label="Instagram" title="Instagram" href="https://instagram.com/jasonfesta" target="_blank" rel="noopener noreferrer">' +
+      '          <svg viewBox="0 0 16 16" class="ugc-founder-social-svg" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.087 3.269.222 2.76.42a5.5 5.5 0 0 0-1.98 1.29A5.5 5.5 0 0 0 .42 2.76c-.198.509-.333 1.09-.372 1.943C.01 5.556 0 5.829 0 8s.01 2.444.048 3.297c.039.853.174 1.434.372 1.943a5.5 5.5 0 0 0 1.29 1.98 5.5 5.5 0 0 0 1.98 1.29c.509.198 1.09.333 1.943.372C5.556 15.99 5.829 16 8 16s2.444-.01 3.297-.048c.853-.039 1.434-.174 1.943-.372a5.5 5.5 0 0 0 1.98-1.29 5.5 5.5 0 0 0 1.29-1.98c.198-.509.333-1.09.372-1.943C15.99 10.444 16 10.171 16 8s-.01-2.444-.048-3.297c-.039-.853-.174-1.434-.372-1.943a5.5 5.5 0 0 0-1.29-1.98A5.5 5.5 0 0 0 13.24.42c-.509-.198-1.09-.333-1.943-.372C10.444.01 10.171 0 8 0zm0 1.44c2.133 0 2.389.008 3.227.046.775.035 1.195.165 1.475.274.37.144.634.316.911.593.277.277.449.54.593.911.109.28.239.7.274 1.475.038.838.046 1.094.046 3.227s-.008 2.389-.046 3.227c-.035.775-.165 1.195-.274 1.475a4.06 4.06 0 0 1-.593.911 4.06 4.06 0 0 1-.911.593c-.28.109-.7.239-1.475.274-.838.038-1.094.046-3.227.046s-2.389-.008-3.227-.046c-.775-.035-1.195-.165-1.475-.274a4.06 4.06 0 0 1-.911-.593 4.06 4.06 0 0 1-.593-.911c-.109-.28-.239-.7-.274-1.475C1.448 10.389 1.44 10.133 1.44 8s.008-2.389.046-3.227c.035-.775.165-1.195.274-1.475.144-.37.316-.634.593-.911.277-.277.54-.449.911-.593.28-.109.7-.239 1.475-.274C5.611 1.448 5.867 1.44 8 1.44zm0 2.45A4.11 4.11 0 1 0 8 12.11 4.11 4.11 0 0 0 8 3.89zm0 6.78A2.67 2.67 0 1 1 8 5.33a2.67 2.67 0 0 1 0 5.34zm4.273-7.93a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z"/></svg>' +
+      "        </a>" +
+      '        <a class="ugc-founder-social-link" aria-label="TikTok" title="TikTok" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">' +
+      '          <svg viewBox="0 0 16 16" class="ugc-founder-social-svg" aria-hidden="true"><path d="M9 0h2a3 3 0 0 0 3 3v2a5 5 0 0 1-3-1v5.5A4.5 4.5 0 1 1 6.5 5v2.1a2.4 2.4 0 1 0 2.5 2.4z"/></svg>' +
+      "        </a>" +
+      '        <a class="ugc-founder-social-link" aria-label="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/jasonfesta/" target="_blank" rel="noopener noreferrer">' +
+      '          <svg viewBox="0 0 16 16" class="ugc-founder-social-svg" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708C16 15.487 15.474 16 14.825 16H1.175C.526 16 0 15.487 0 14.854V1.146zM4.943 13.5V6.169H2.542V13.5h2.401zm-1.2-8.332c.837 0 1.358-.554 1.358-1.248-.015-.709-.521-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.332V9.359c0-.222.016-.444.082-.603.178-.444.582-.904 1.261-.904.89 0 1.245.682 1.245 1.682V13.5h2.401V9.256c0-2.273-1.213-3.33-2.834-3.33-1.306 0-1.87.718-2.193 1.222h.016V6.169H6.227c.03.645 0 7.331 0 7.331h2.401z"/></svg>' +
+      "        </a>" +
+      "      </div>" +
+      "    </div>" +
+      "  </div>" +
+      "</div>";
+
+    socials.insertAdjacentElement("beforebegin", section);
+  }
+
   function syncContactSection() {
     var section = document.querySelector("#socials");
     if (!section) return;
@@ -1555,6 +1626,7 @@
     removeWritingSection();
     renderProductsGrid();
     syncPortfolio();
+    ensureFounderSection();
     syncContactSection();
     syncFooterLocation();
     syncBrowserIcons();
