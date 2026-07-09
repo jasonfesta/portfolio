@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenSea - Jason Festa</title>
+    <meta name="description" content="AI product placement in creator videos across major social platforms." />
+    <link rel="stylesheet" href="/pages/products/_product.css?v=3" />
+    <style>
+      .opensea-role-video {
+        background: #161616 !important;
+      }
+
+      .opensea-role-video video {
+        background: #161616;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="reader-hero reader-hero--video">
+      <video id="darwin-header-video" autoplay muted loop playsinline webkit-playsinline preload="metadata">
+        <source src="/assets/products/opensea-cut-1_1_cloud_prob4-hq.webm" type="video/webm" />
+      </video>
+    </header>
+    <main class="reader-wrap">
+      <a class="reader-back" href="/">&#8592; Back to home</a>
+      <h1 class="reader-title">OpenSea</h1>
+      <p class="reader-subtitle">Veo, Hailuo, Udio, Figma, After Effects, Topaz</p>
+      <span class="product-pill">Project</span>
+      <hr class="reader-rule" />
+      <article class="reader-body darwin-sections">
+        <h2>Role</h2>
+        <p>Created one of a series of Italian brainrot-style AI videos to jam OpenSea Voyages and its NFT royalty IP straight into internet culture. This one follows a totally cooked OS lobster, tricorn hat, captain's wheel fused to his head, glitch-dancing and sailing his way to OpenSea Island with a crew of messed-up animal-craft hybrids: paddleboard penguins, jet-ski apes, boat-bodied seals. The goal was to turn the royalty NFT IP into scroll-breaking mascots dumb enough to make people stop, laugh, and wonder what they just watched, dumb on purpose, because that's the point. Built using Midjourney, Veo, Hailuo AI, Udio, Figma, After Effects, and Topaz.</p>
+        <div class="section-video darwin-trailer-full opensea-role-video" aria-label="OpenSea video">
+          <video autoplay muted loop playsinline preload="metadata">
+            <source src="/assets/products/opensea-cut-1_1_cloud_prob4-hq.webm" type="video/webm" />
+          </video>
+        </div>
+
+        <h2>Generations</h2>
+        <div class="darwin-brand-grid" aria-label="Generations grid">
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 1">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-01.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 2">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-02.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 3">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-03.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 4">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-04.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 5">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-05.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 6">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-06.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 7">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-07.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 8">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-08.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 9">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-09.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 10">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-10.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 11">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-11.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="darwin-brand-grid-card" aria-label="Generation slot 12">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="/assets/products/opensea-generation-12.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </article>
+    </main>
+    <script>
+      (function () {
+        var video = document.getElementById("darwin-header-video");
+        if (!video) return;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+
+        function ensurePlay() {
+          try {
+            var p = video.play();
+            if (p && typeof p.catch === "function") p.catch(function () {});
+          } catch (_e) {}
+        }
+
+        ensurePlay();
+        video.addEventListener("loadeddata", ensurePlay);
+        video.addEventListener("canplay", ensurePlay);
+        window.addEventListener("pageshow", ensurePlay);
+        document.addEventListener("visibilitychange", function () {
+          if (!document.hidden) ensurePlay();
+        });
+
+        video.addEventListener("ended", function () {
+          try {
+            video.currentTime = 0;
+            ensurePlay();
+          } catch (_e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>

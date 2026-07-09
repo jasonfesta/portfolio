@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mango Clips - Jason Festa</title>
+    <meta name="description" content="AI product placement in creator videos across major social platforms." />
+    <link rel="stylesheet" href="/pages/products/_product.css?v=3" />
+  </head>
+  <body>
+    <header class="reader-hero reader-hero--video">
+      <video id="darwin-header-video" autoplay muted loop playsinline webkit-playsinline preload="auto">
+        <source src="/assets/products/giphy_9x16_ffbf4d_130.webm" type="video/webm" />
+      </video>
+    </header>
+    <main class="reader-wrap">
+      <a class="reader-back" href="/">&#8592; Back to home</a>
+      <h1 class="reader-title">Mango Clips</h1>
+      <p class="reader-subtitle">Cursor, Codex, Fal, Mangos</p>
+      <span class="product-pill">Project</span>
+      <hr class="reader-rule" />
+      <article class="reader-body darwin-sections">
+        <h2>Role</h2>
+        <p>I led creative direction and design for Darwin, hands-on across the entire go-to-market stack: branding, web, social, and motion. I worked directly with the founder, Sanjit Juneja, on the bet the whole company is built on: that the future of AI is multiplayer, with networks that connect brands, creators, and consumers, rather than tools that serve one person at a time.</p>
+
+        <h2>Style</h2>
+        <div class="darwin-brief-bucket" aria-label="Brief image area"></div>
+        <p>Darwin is a multiplayer AI network. One foundation model, Atlas, powers three products: Darwin Ads for brands, Darwin Studio for creators, and Wayve for consumers. Each is a different way into the same network. My job was the brand and design across all of it: one identity that could hold three products and three audiences together without flattening what made each distinct.</p>
+
+        <h2>Design</h2>
+        <div class="darwin-brief-bucket" aria-label="Problem image area"></div>
+        <p>Most AI is single-player: one person, one model, one chat window. Darwin's bet is the opposite. The real value shows up when AI connects people, so a brand, a creator, and a viewer all meet inside the same system. That's hard to make legible. "Multiplayer AI network" is an abstraction, and the brand had to make it concrete in seconds, for three audiences who want completely different things, without fracturing into three companies.</p>
+
+        <h2>Channels</h2>
+        <div class="darwin-brand-grid" aria-label="Brands image grid">
+          <img src="/assets/images/brands/amazon-mgm.png?v=20260613c" alt="Amazon MGM" loading="lazy" />
+          <img src="/assets/images/brands/nfl.png" alt="NFL" loading="lazy" />
+          <img src="/assets/images/brands/fifa.png" alt="FIFA" loading="lazy" />
+          <img src="/assets/images/brands/adobe.png" alt="Adobe" loading="lazy" />
+          <img src="/assets/images/brands/disney.png" alt="Disney" loading="lazy" />
+          <img src="/assets/images/brands/pixar.png" alt="Pixar" loading="lazy" />
+          <img src="/assets/images/brands/coinmarketcap.png" alt="Coin Market Cap" loading="lazy" />
+          <img src="/assets/images/brands/kraken.png" alt="Kraken" loading="lazy" />
+        </div>
+        <p>Each product is a different door into the same network: Ads for brands, Studio for creators, Wayve for consumers, all running on Atlas. The brand had to stay recognizably Darwin across every one, and across every platform they ship on. I built the production pipeline to make that scalable. Remotion defines a piece once and outputs platform-specific cuts, and FFmpeg transcodes and renders to spec, so one identity holds everywhere without being rebuilt by hand each time.</p>
+
+        <h2 class="layer-system-title">System</h2>
+        <div class="darwin-brief-bucket" aria-label="Layer system image area"></div>
+        <p>Every layer had to make an abstraction, a multiplayer AI network, feel concrete and credible. Four layers, one system:</p>
+        <p><strong>Brand Layer</strong> - Logo, identity, and type system. The mark is a ribbon folded into a quatrefoil, delivered flat for functional use and as a 3D render for hero moments. Type set in [font name]. Built in Figma as tokens and components so it holds across all three products.</p>
+        <p><strong>Web Layer</strong> - Darwin's site, built directly in code in Cursor with Opus and Codex, with no Figma handoff. Iterated live until the look and feel matched the brand.</p>
+        <p><strong>Social Layer</strong> - Presence across X, TikTok, YouTube, Instagram, and Reddit, establishing Darwin as a multiplayer AI network. Native cuts per platform from the shared motion system.</p>
+        <p><strong>Motion Layer</strong> - Motion principles and templates for presentations, trailers, and content. Built in Jitter for designed sequences and Remotion for programmatic, templated video, one system reused everywhere.</p>
+
+        <h2>Team</h2>
+        <p><strong>Jason Festa</strong> - Design GTM</p>
+        <p><strong>Sanjit Juneja</strong> - Founder</p>
+        <p><strong>Soham Parekh</strong> - Engineering</p>
+      </article>
+    </main>
+    <script>
+      (function () {
+        var video = document.getElementById("darwin-header-video");
+        if (!video) return;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+
+        function ensurePlay() {
+          try {
+            var p = video.play();
+            if (p && typeof p.catch === "function") p.catch(function () {});
+          } catch (_e) {}
+        }
+
+        ensurePlay();
+        video.addEventListener("loadeddata", ensurePlay);
+        video.addEventListener("canplay", ensurePlay);
+        window.addEventListener("pageshow", ensurePlay);
+        document.addEventListener("visibilitychange", function () {
+          if (!document.hidden) ensurePlay();
+        });
+
+        video.addEventListener("ended", function () {
+          try {
+            video.currentTime = 0;
+            ensurePlay();
+          } catch (_e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>
