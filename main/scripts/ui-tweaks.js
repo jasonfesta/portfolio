@@ -3,7 +3,7 @@
   var HERO_HEADLINE_PREFIX = "AI UGC that actually looks ";
   var HERO_HEADLINE_WORDS = ["human.", "yummy.", "tasty.", "real.", "legit.", "no cap.", "six seven.", "organic."];
   var HERO_DESCRIPTION_TEXT =
-    "Send us a few photos or vids. Get 50+ creator-style videos that look like real people shot them — using the latest AI models, in under 24 hours. Yes, it's AI. No, your buyers won't be able to tell.";
+    "My name is Amber, and I'm an AI UGC manager and content creator based in Boca Raton, Florida. I help real and AI creators connect with brands for Tech & DTC UGC campaigns.";
   var MANGO_OVERLAY_POST = {
     title: "Mango",
     subtitle: "AI UGC campaign post results",
@@ -12,122 +12,140 @@
     {
       creators: 18,
       day: 7,
-      totalViews: "118K",
+      totalViews: "15.2K",
       totalDownloads: "410",
       cpm: "$0.74",
-      viewsLabel: "118K views",
+      viewsLabel: "9.4K views",
     },
     {
       creators: 26,
       day: 10,
-      totalViews: "142K",
+      totalViews: "39.6K",
       totalDownloads: "560",
       cpm: "$0.68",
-      viewsLabel: "142K views",
+      viewsLabel: "24.8K views",
     },
     {
       creators: 32,
       day: 12,
-      totalViews: "176K",
+      totalViews: "72.1K",
       totalDownloads: "690",
       cpm: "$0.62",
-      viewsLabel: "176K views",
+      viewsLabel: "58.6K views",
     },
     {
       creators: 41,
       day: 14,
-      totalViews: "198K",
+      totalViews: "98.6K",
       totalDownloads: "860",
       cpm: "$0.57",
-      viewsLabel: "198K views",
+      viewsLabel: "92.7K views",
     },
   ];
-  var DISCORD_SUPPORT_URL = "https://discord.gg/4VA8F58WaQ";
+  var DISCORD_SUPPORT_URL = "https://discord.gg/6QufGHAuj3";
+  var CAL_BOOKING_URL = "https://cal.com/amberinboca";
   var MANGO_STICKER_URL =
     "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHRscHNiZndtOG54b3l0eXhoMzlscGE2bzRhaWRxMHB3NTN5MHVjbSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/L2l4HpbpRw4TeRfYVl/giphy.webp";
   var STRIPE_DEFAULT_CHECKOUT_URL = "https://stripe.com";
   var PLAYKIT_VIDEO_SOURCES = [
-    "/assets/playkit/pk-01.webm",
-    "/assets/playkit/pk-02.webm",
-    "/assets/playkit/pk-03.webm",
-    "/assets/playkit/pk-04.webm",
-    "/assets/playkit/pk-05.webm",
-    "/assets/playkit/pk-06.webm",
-    "/assets/playkit/pk-07.webm",
-    "/assets/playkit/pk-08.webm",
+    "/assets/playkit/pk-01.mp4",
+    "/assets/playkit/pk-02.mp4",
+    "/assets/playkit/pk-03.mp4",
+    "/assets/playkit/pk-04.mp4",
+    "/assets/playkit/pk-05.mp4",
+    "/assets/playkit/pk-06.mp4",
+    "/assets/playkit/pk-07.mp4",
+    "/assets/playkit/pk-08.mp4",
   ];
   var TOP_CAROUSEL_VIDEO_SOURCES = [
-    "/assets/playkit/pk-01.webm",
-    "/assets/mangos/mango-yacht.webm",
-    "/assets/playkit/pk-02.webm",
-    "/assets/mangos/mango-corvette.webm",
-    "/assets/playkit/pk-03.webm",
-    "/assets/mangos/mango-rick-obey-yacht.webm",
-    "/assets/playkit/pk-04.webm",
-    "/assets/mangos/mango-missouri-estate.webm",
-    "/assets/playkit/pk-05.webm",
-    "/assets/mangos/mango-downey-hyundai.webm",
-    "/assets/playkit/pk-06.webm",
-    "/assets/mangos/mango-mcallen-home.webm",
-    "/assets/playkit/pk-07.webm",
-    "/assets/mangos/mango-prosper-gated.webm",
-    "/assets/playkit/pk-08.webm",
+    "/assets/playkit/pk-01.mp4",
+    "/assets/mangos/mango-yacht.mp4",
+    "/assets/playkit/pk-02.mp4",
+    "/assets/mangos/mango-corvette.mp4",
+    "/assets/playkit/pk-03.mp4",
+    "/assets/mangos/mango-rick-obey-yacht.mp4",
+    "/assets/playkit/pk-04.mp4",
+    "/assets/mangos/mango-missouri-estate.mp4",
+    "/assets/playkit/pk-05.mp4",
+    "/assets/mangos/mango-downey-hyundai.mp4",
+    "/assets/playkit/pk-06.mp4",
+    "/assets/mangos/mango-mcallen-home.mp4",
+    "/assets/playkit/pk-07.mp4",
+    "/assets/mangos/mango-prosper-gated.mp4",
+    "/assets/playkit/pk-08.mp4",
   ];
   var TOP_CAROUSEL_UNIQUE_VIDEO_SOURCES = TOP_CAROUSEL_VIDEO_SOURCES.filter(function (src, idx, arr) {
     return arr.indexOf(src) === idx;
   });
   var MANGO_ADDITIONAL_VIDEO_SOURCES = [
-    "/assets/mangos/mango-yacht.webm",
-    "/assets/mangos/mango-corvette.webm",
-    "/assets/mangos/mango-missouri-estate.webm",
-    "/assets/mangos/mango-downey-hyundai.webm",
-    "/assets/mangos/mango-mcallen-home.webm",
-    "/assets/mangos/mango-prosper-gated.webm",
-    "/assets/mangos/mango-rick-obey-yacht.webm",
+    "/assets/mangos/mango-yacht.mp4",
+    "/assets/mangos/mango-corvette.mp4",
+    "/assets/mangos/mango-missouri-estate.mp4",
+    "/assets/mangos/mango-downey-hyundai.mp4",
+    "/assets/mangos/mango-mcallen-home.mp4",
+    "/assets/mangos/mango-prosper-gated.mp4",
+    "/assets/mangos/mango-rick-obey-yacht.mp4",
   ];
   var MANGO_GRID_VIDEO_SOURCES = [
-    "/assets/playkit/pk-01.webm",
-    "/assets/mangos/mango-yacht.webm",
-    "/assets/playkit/pk-02.webm",
-    "/assets/mangos/mango-corvette.webm",
-    "/assets/playkit/pk-03.webm",
-    "/assets/mangos/mango-missouri-estate.webm",
-    "/assets/playkit/pk-04.webm",
-    "/assets/mangos/mango-downey-hyundai.webm",
-    "/assets/playkit/pk-05.webm",
-    "/assets/mangos/mango-mcallen-home.webm",
-    "/assets/playkit/pk-06.webm",
-    "/assets/mangos/mango-prosper-gated.webm",
-    "/assets/playkit/pk-07.webm",
-    "/assets/mangos/mango-rick-obey-yacht.webm",
-    "/assets/playkit/pk-08.webm",
+    "/assets/playkit/pk-01.mp4",
+    "/assets/mangos/mango-yacht.mp4",
+    "/assets/playkit/pk-02.mp4",
+    "/assets/mangos/mango-corvette.mp4",
+    "/assets/playkit/pk-03.mp4",
+    "/assets/mangos/mango-missouri-estate.mp4",
+    "/assets/playkit/pk-04.mp4",
+    "/assets/mangos/mango-downey-hyundai.mp4",
+    "/assets/playkit/pk-05.mp4",
+    "/assets/mangos/mango-mcallen-home.mp4",
+    "/assets/playkit/pk-06.mp4",
+    "/assets/mangos/mango-prosper-gated.mp4",
+    "/assets/playkit/pk-07.mp4",
+    "/assets/mangos/mango-rick-obey-yacht.mp4",
+    "/assets/playkit/pk-08.mp4",
   ];
   var PLAYKIT_MANGO_TITLE_BY_SOURCE = {
-    "/assets/playkit/pk-01.webm": "Forward Facing",
-    "/assets/playkit/pk-02.webm": "Point Of View",
-    "/assets/playkit/pk-03.webm": "Talking Head",
-    "/assets/playkit/pk-04.webm": "Carousel",
-    "/assets/playkit/pk-05.webm": "Talking Head",
-    "/assets/playkit/pk-06.webm": "Forward Facing",
-    "/assets/playkit/pk-07.webm": "Point Of View",
-    "/assets/playkit/pk-08.webm": "Talking Head",
-    "/assets/mangos/mango-yacht.webm": "2004 Mangusta 72 Price Drop",
-    "/assets/mangos/mango-corvette.webm": "Cacti Corvette $9,900 Down",
-    "/assets/mangos/mango-missouri-estate.webm": "Missouri City 6,099 Sqft Tour",
-    "/assets/mangos/mango-downey-hyundai.webm": "Downey Hyundai Callback Hook",
-    "/assets/mangos/mango-mcallen-home.webm": "McAllen $385K Listing",
-    "/assets/mangos/mango-prosper-gated.webm": "Prosper Gated Mansion Tour",
-    "/assets/mangos/mango-rick-obey-yacht.webm": "So You Sell Boats? Hook",
+    "/assets/playkit/pk-01.mp4": "Forward Facing",
+    "/assets/playkit/pk-02.mp4": "Point Of View",
+    "/assets/playkit/pk-03.mp4": "Talking Head",
+    "/assets/playkit/pk-04.mp4": "Carousel",
+    "/assets/playkit/pk-05.mp4": "Talking Head",
+    "/assets/playkit/pk-06.mp4": "Forward Facing",
+    "/assets/playkit/pk-07.mp4": "Point Of View",
+    "/assets/playkit/pk-08.mp4": "Talking Head",
+    "/assets/mangos/mango-yacht.mp4": "2004 Mangusta 72 Price Drop",
+    "/assets/mangos/mango-corvette.mp4": "Cacti Corvette $9,900 Down",
+    "/assets/mangos/mango-missouri-estate.mp4": "Missouri City 6,099 Sqft Tour",
+    "/assets/mangos/mango-downey-hyundai.mp4": "Downey Hyundai Callback Hook",
+    "/assets/mangos/mango-mcallen-home.mp4": "McAllen $385K Listing",
+    "/assets/mangos/mango-prosper-gated.mp4": "Prosper Gated Mansion Tour",
+    "/assets/mangos/mango-rick-obey-yacht.mp4": "So You Sell Boats? Hook",
   };
   var MANGO_VIEWS_BY_SOURCE = {
-    "/assets/mangos/mango-yacht.webm": "164K views",
-    "/assets/mangos/mango-corvette.webm": "189K views",
-    "/assets/mangos/mango-missouri-estate.webm": "152K views",
-    "/assets/mangos/mango-downey-hyundai.webm": "121K views",
-    "/assets/mangos/mango-mcallen-home.webm": "138K views",
-    "/assets/mangos/mango-prosper-gated.webm": "173K views",
-    "/assets/mangos/mango-rick-obey-yacht.webm": "181K views",
+    "/assets/mangos/mango-yacht.mp4": "16.1K views",
+    "/assets/mangos/mango-corvette.mp4": "34.7K views",
+    "/assets/mangos/mango-missouri-estate.mp4": "68.9K views",
+    "/assets/mangos/mango-downey-hyundai.mp4": "12.8K views",
+    "/assets/mangos/mango-mcallen-home.mp4": "45.6K views",
+    "/assets/mangos/mango-prosper-gated.mp4": "84.9K views",
+    "/assets/mangos/mango-rick-obey-yacht.mp4": "97.3K views",
   };
+  var MANGO_GRID_VIEW_LABELS = [
+    "8.7K views",
+    "14.6K views",
+    "23.4K views",
+    "32.8K views",
+    "41.5K views",
+    "57.9K views",
+    "63.2K views",
+    "11.9K views",
+    "28.6K views",
+    "44.2K views",
+    "52.7K views",
+    "83.5K views",
+    "19.3K views",
+    "96.4K views",
+    "71.8K views",
+  ];
 
   // Quick revert switch:
   // - true  => new layout structure using existing visual style language
@@ -200,7 +218,7 @@
       '  <div id="ugc-video-stack" class="relative h-[106px]"></div>' +
       '  <div class="text-center text-[30px] text-muted-foreground">→</div>' +
       '  <article class="relative overflow-hidden rounded-xl border border-border/60 bg-card/50 h-[152px]">' +
-      '    <video src="/assets/products/sogni.webm" autoplay muted loop playsinline preload="metadata" class="absolute inset-0 size-full object-cover opacity-60"></video>' +
+      '    <video src="/assets/products/sogni.mp4" autoplay muted loop playsinline preload="metadata" class="absolute inset-0 size-full object-cover opacity-60"></video>' +
       '    <span class="absolute inset-x-0 bottom-2 text-center text-[14px] tracking-tight text-foreground">Tik Tok</span>' +
       "  </article>" +
       "</section>" +
@@ -216,9 +234,9 @@
 
     var stackTarget = app.querySelector("#ugc-video-stack");
     var stackMedia = [
-      "/assets/products/dmos.webm",
-      "/assets/products/darwin.webm",
-      "/assets/products/wayve.webm",
+      "/assets/products/dmos.mp4",
+      "/assets/products/darwin.mp4",
+      "/assets/products/wayve.mp4",
     ];
     stackMedia.forEach(function (src, index) {
       var card = document.createElement("article");
@@ -249,7 +267,7 @@
       row.innerHTML =
         '<div class="relative overflow-hidden rounded-lg border border-border/60 bg-card/50 h-[94px]">' +
         '  <video src="' +
-        ["/assets/products/dmos.webm", "/assets/products/darwin.webm", "/assets/products/wayve.webm"][index % 3] +
+        ["/assets/products/dmos.mp4", "/assets/products/darwin.mp4", "/assets/products/wayve.mp4"][index % 3] +
         '" autoplay muted loop playsinline preload="metadata" class="absolute inset-0 size-full object-cover opacity-56"></video>' +
         '  <span class="absolute left-2 bottom-2 text-[10px] leading-tight text-foreground">' +
         item.title +
@@ -276,7 +294,7 @@
       card.innerHTML =
         '<div class="relative overflow-hidden rounded-lg border border-border/60 bg-card/50 h-[46px]">' +
         '  <video src="' +
-        ["/assets/products/sogni.webm", "/assets/products/dmos.webm", "/assets/products/darwin.webm", "/assets/products/wayve.webm"][index % 4] +
+        ["/assets/products/sogni.mp4", "/assets/products/dmos.mp4", "/assets/products/darwin.mp4", "/assets/products/wayve.mp4"][index % 4] +
         '" autoplay muted loop playsinline preload="metadata" class="absolute inset-0 size-full object-cover opacity-56"></video>' +
         '  <span class="absolute left-2 bottom-2 text-[10px] leading-tight text-foreground">' +
         item.title +
@@ -336,28 +354,28 @@
         title: "Claude, Apify, Dmos",
         description: "Autonomous growth operations platform.",
         href: "/pages/products/dmos.html",
-        videoSrc: "/assets/products/dmos.webm",
+        videoSrc: "/assets/products/dmos.mp4",
       },
       {
         date: "APR 2026",
         title: "Figma, Cusor, Fal, Darwin",
         description: "Multiplayer AI networks for brands and creators.",
         href: "/pages/products/darwin.html",
-        videoSrc: "/assets/products/darwin.webm",
+        videoSrc: "/assets/products/darwin.mp4",
       },
       {
         date: "MAR 2026",
         title: "Figma, Fal, Wayve",
         description: "A consumer iOS app for personalized AI video.",
         href: "/pages/products/wayve.html",
-        videoSrc: "/assets/products/wayve.webm",
+        videoSrc: "/assets/products/wayve.mp4",
       },
       {
         date: "JAN 2026",
         title: "Figma, Midjourney, Sogni",
         description: "Creative AI workflows for visual ideation.",
         href: "/pages/products/sogni.html",
-        videoSrc: "/assets/products/sogni.webm",
+        videoSrc: "/assets/products/sogni.mp4",
       },
     ],
     portfolioTitles: [
@@ -424,28 +442,28 @@
         title: "Cursor, Remotion, Darwin Ads",
         description: "Motion stack",
         href: "/pages/products/darwin-ads.html",
-        videoSrc: "/assets/products/dmos.webm",
+        videoSrc: "/assets/products/dmos.mp4",
       },
       {
         date: "APR 2026",
         title: "Fal, Cursor, Remotion, Darwin Ads",
         description: "Motion stack",
         href: "/pages/products/darwin-studio.html",
-        videoSrc: "/assets/products/darwin.webm",
+        videoSrc: "/assets/products/darwin.mp4",
       },
       {
         date: "MAR 2026",
         title: "Jitter, Wayve",
         description: "Motion stack",
         href: "/pages/products/wayve.html",
-        videoSrc: "/assets/products/wayve.webm",
+        videoSrc: "/assets/products/wayve.mp4",
       },
       {
         date: "JAN 2026",
         title: "Fal, After Effects, OpenSea",
         description: "Motion stack",
         href: "/pages/products/opensea.html",
-        videoSrc: "/assets/products/sogni.webm",
+        videoSrc: "/assets/products/sogni.mp4",
       },
     ],
   };
@@ -465,8 +483,9 @@
     video.setAttribute("data-ugc-video-ready", "true");
   }
 
-  function hydrateLazyVideo(video) {
+  function hydrateLazyVideo(video, options) {
     if (!video) return;
+    options = options || {};
     var lazySrc = video.getAttribute("data-ugc-lazy-src");
     if (!lazySrc) return;
     video.classList.add("ugc-video-loading");
@@ -479,6 +498,7 @@
     video.addEventListener("canplay", onReady, { once: true });
     var currentSrc = video.getAttribute("src") || "";
     if (currentSrc !== lazySrc) {
+      video.preload = options.preload || "metadata";
       video.setAttribute("src", lazySrc);
       video.load();
     }
@@ -511,22 +531,52 @@
       },
       {
         root: null,
-        rootMargin: "220px 0px",
+        rootMargin: "520px 0px",
         threshold: 0.1,
       },
     );
     return lazyVideoObserver;
   }
 
+  function isNearViewport(video) {
+    if (!video || typeof window === "undefined" || !video.getBoundingClientRect) return false;
+    var rect = video.getBoundingClientRect();
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+    return rect.top < viewportHeight * 1.25 && rect.bottom > -200;
+  }
+
+  function scheduleLazyVideoHydration(video, delay, preload) {
+    if (!video || video.getAttribute("data-ugc-video-queued") === "true") return;
+    video.setAttribute("data-ugc-video-queued", "true");
+    setTimeout(function () {
+      video.removeAttribute("data-ugc-video-queued");
+      hydrateLazyVideo(video, { preload: preload || "metadata" });
+    }, delay);
+  }
+
   function setupLazyVideos() {
     var videos = qsa("video[data-ugc-lazy-src]");
     if (!videos.length) return;
     var observer = ensureLazyVideoObserver();
+    var priorityIndex = 0;
+    var nearIndex = 0;
     videos.forEach(function (video) {
+      var isTopCarouselVideo = !!video.closest("#ugc-scrolling-showcase");
+      if (isTopCarouselVideo) {
+        scheduleLazyVideoHydration(video, priorityIndex * 120, "metadata");
+        priorityIndex += 1;
+        return;
+      }
+      if (isNearViewport(video)) {
+        scheduleLazyVideoHydration(video, 350 + nearIndex * 180, "metadata");
+        nearIndex += 1;
+        return;
+      }
       if (observer) {
         observer.observe(video);
       } else {
-        hydrateLazyVideo(video);
+        scheduleLazyVideoHydration(video, 700 + nearIndex * 220, "metadata");
+        nearIndex += 1;
       }
     });
   }
@@ -617,68 +667,40 @@
 
     var packageCards = [
       {
-        title: "25 posts",
-        description: "",
-        href: STRIPE_DEFAULT_CHECKOUT_URL,
-        stripePlan: "starter",
-        videoSrc: "/assets/playkit/pk-01.webm",
-        ctaLabel: "Starter - $99",
-        bullets: [
-          "📅 25 Posts Per Month",
-          "🧑‍🎨 5 Unique AI Creators",
-          "📱 Forward Facing",
-          "🎤 Talking Head",
-          "🎞️ Carousel",
-          "👀 POV",
-        ],
+        title: "100 Posts",
+        description:
+          "100 unqiue TikToks, cross-posted to Instagram. Organic & paid usage included.",
+        href: CAL_BOOKING_URL,
+        videoSrc: "/assets/playkit/pk-01.mp4",
+        ctaLabel: "$1K 🥭 4 Weeks",
+        bullets: [],
       },
       {
-        title: "100 posts",
-        description: "",
-        href: STRIPE_DEFAULT_CHECKOUT_URL,
-        stripePlan: "go_get_it",
-        videoSrc: "/assets/mangos/mango-freeman-47.webm",
-        ctaLabel: "Go Get It - $299",
-        bullets: [
-          "📅 100 Posts Per Month",
-          "🧑‍🎨 25 Unique AI Creators",
-          "📱 Forward Facing",
-          "🎤 Talking Head",
-          "🎞️ Carousel",
-          "👀 POV",
-        ],
+        title: "250 Posts",
+        description:
+          "250 unqiue TikToks, cross-posted to Instagram. Organic & paid usage included.",
+        href: CAL_BOOKING_URL,
+        videoSrc: "/assets/mangos/mango-freeman-47.mp4",
+        ctaLabel: "$2K 🥭 4 Weeks",
+        bullets: [],
       },
       {
-        title: "500 posts",
-        description: "",
-        href: STRIPE_DEFAULT_CHECKOUT_URL,
-        stripePlan: "blast_off",
-        videoSrc: "/assets/mangos/mango-prosper-12m-home.webm",
-        ctaLabel: "Blast Off - $499",
-        bullets: [
-          "📅 500 Posts Per Month",
-          "🧑‍🎨 50 Unique AI Creators",
-          "📱 Forward Facing",
-          "🎤 Talking Head",
-          "🎞️ Carousel",
-          "👀 POV",
-        ],
+        title: "500 Posts",
+        description:
+          "500 unqiue TikToks, cross-posted to Instagram. Organic & paid usage included.",
+        href: CAL_BOOKING_URL,
+        videoSrc: "/assets/mangos/mango-prosper-12m-home.mp4",
+        ctaLabel: "$5K 🥭 4 Weeks",
+        bullets: [],
       },
       {
-        title: "Need Scale?",
-        description: "",
-        href: DISCORD_SUPPORT_URL,
-        videoSrc: "/assets/playkit/pk-04.webm",
-        ctaLabel: "Chat With Us",
-        bullets: [
-          "📅 Flexible Volume",
-          "📦 Supports 25-500 Post Bundles",
-          "🧑‍🎨 Custom AI Creator Mix",
-          "📱 Forward Facing Variants",
-          "🎤 Talking Head Variants",
-          "🎞️ Carousel Variants",
-          "👀 POV Variants",
-        ],
+        title: "1000+ Posts",
+        description:
+          "1000+ unqiue TikToks, cross-posted to Instagram. Organic & paid usage included.",
+        href: CAL_BOOKING_URL,
+        videoSrc: "/assets/playkit/pk-04.mp4",
+        ctaLabel: "$10K 🥭 6 Weeks",
+        bullets: [],
       },
     ];
 
@@ -692,7 +714,7 @@
             '<span class="ugc-package-fade"></span>';
         var cardClass = item.isSolidCta
           ? "ugc-package-card ugc-package-card--cta"
-          : "ugc-package-card";
+          : "ugc-package-card" + (item.isActionOnly ? " ugc-package-card--action-only" : "");
         var bulletsHtml =
           item.bullets && item.bullets.length
             ? '<ul class="ugc-package-bullets">' +
@@ -713,6 +735,38 @@
                 .join("") +
               "</div>"
             : "";
+        var ctaHtml =
+          item.ctaLinks && item.ctaLinks.length
+            ? '<div class="ugc-package-actions">' +
+              item.ctaLinks
+                .map(function (cta) {
+                  return (
+                    '<a href="' +
+                    cta.href +
+                    '" target="_blank" rel="noopener noreferrer" class="ugc-package-cta">' +
+                    cta.label +
+                    "</a>"
+                  );
+                })
+                .join("") +
+              "</div>"
+            : '<button type="button" class="ugc-package-cta">' + item.ctaLabel + "</button>";
+
+        if (item.isActionOnly) {
+          return (
+            '<li class="ugc-package-item">' +
+            '  <div class="' +
+            cardClass +
+            '">' +
+            media +
+            topDetailsHtml +
+            '    <div class="ugc-package-copy">' +
+            ctaHtml +
+            "    </div>" +
+            "  </div>" +
+            "</li>"
+          );
+        }
 
         return (
           '<li class="ugc-package-item">' +
@@ -735,9 +789,7 @@
           item.description +
           "</p>" +
           bulletsHtml +
-          '      <button type="button" class="ugc-package-cta">' +
-          item.ctaLabel +
-          "</button>" +
+          ctaHtml +
           "    </div>" +
           "  </a>" +
           "</li>"
@@ -769,10 +821,9 @@
         logoMark.textContent = "";
         logoMark.setAttribute("aria-label", "mango sticker logo");
       }
-      var discord = existing.querySelector("[data-ugc-discord]");
-      var schedule = existing.querySelector("[data-ugc-schedule]");
-      if (schedule) schedule.textContent = "Book a call";
-      if (discord) discord.textContent = "Discord";
+      qsa("[data-ugc-discord], [data-ugc-schedule]", existing).forEach(function (button) {
+        button.remove();
+      });
       existing.style.paddingTop = "20px";
       existing.style.paddingBottom = "20px";
       return;
@@ -787,10 +838,6 @@
       '<div class="mx-auto w-full max-w-5xl px-6 sm:px-10 lg:px-16">' +
       '  <div class="flex items-center justify-between gap-4">' +
       '    <span data-ugc-logo-image class="ugc-top-logo-mark" role="img" aria-label="mango sticker logo"></span>' +
-      '    <div class="flex items-center gap-2">' +
-      '      <button data-ugc-schedule type="button" class="inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Book a call</button>' +
-      '      <button data-ugc-discord type="button" class="inline-flex items-center rounded-full border border-border/60 px-3 py-1.5 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Discord</button>' +
-      "    </div>" +
       "  </div>" +
       "</div>";
 
@@ -818,8 +865,13 @@
       if (lineTwo) {
         lineTwo.textContent = HERO_DESCRIPTION_TEXT;
       }
-      if (cta) cta.textContent = "Book a call";
-      if (discord) discord.textContent = "Discord";
+      if (cta) cta.textContent = "Book a Call with Amber";
+      if (discord) {
+        discord.textContent = "Join Amber's Discord";
+        discord.setAttribute("href", DISCORD_SUPPORT_URL);
+        discord.setAttribute("target", "_blank");
+        discord.setAttribute("rel", "noopener noreferrer");
+      }
       return;
     }
 
@@ -837,10 +889,12 @@
       HERO_DESCRIPTION_TEXT +
       "</p>" +
       '    <div class="flex flex-wrap items-center gap-2.5">' +
-      '      <a data-ugc-headline-cta href="https://cal.com/jasonfesta" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-border/60 px-4 py-2 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Book a call</a>' +
+      '      <a data-ugc-headline-cta href="' +
+      CAL_BOOKING_URL +
+      '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-border/60 px-4 py-2 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Book a Call with Amber</a>' +
       '      <a data-ugc-headline-discord href="' +
       DISCORD_SUPPORT_URL +
-      '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-border/60 px-4 py-2 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Discord</a>' +
+      '" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-border/60 px-4 py-2 text-[12px] font-medium tracking-tight text-muted-foreground transition-colors duration-200 hover:text-foreground">Join Amber\'s Discord</a>' +
       "    </div>" +
       "  </div>" +
       "</div>";
@@ -1122,7 +1176,10 @@
       var mangoTitle = PLAYKIT_MANGO_TITLE_BY_SOURCE[clipSrc] || MANGO_OVERLAY_POST.title;
       card.setAttribute("data-ugc-campaign-profile", String(campaignProfileIdx));
       card.setAttribute("data-ugc-mango-title", mangoTitle);
-      card.setAttribute("data-ugc-views", MANGO_VIEWS_BY_SOURCE[clipSrc] || campaignProfile.viewsLabel);
+      card.setAttribute(
+        "data-ugc-views",
+        MANGO_GRID_VIEW_LABELS[idx % MANGO_GRID_VIEW_LABELS.length] || MANGO_VIEWS_BY_SOURCE[clipSrc] || campaignProfile.viewsLabel,
+      );
       card.setAttribute("title", model.title || "Portfolio");
       card.setAttribute("tabindex", "0");
       card.style.cursor = "pointer";
@@ -1159,12 +1216,11 @@
     if (!socials) return;
 
     var existing = document.getElementById("founder-story");
-    var founderVideoSrc = "/assets/mangos/mango-prosper-gated.webm";
+    var founderVideoSrc = "/assets/mangos/mango-prosper-gated.mp4";
     var founderHeadline = "Meet Amber, your AI UGC manager.";
     var founderParagraph =
-      "I manage a team of synthetic UGC creators — now over 5,000 strong across the US and Canada. Follow me for the latest models, make up, and mangos!";
-    var founderSignatureMarkup =
-      '<span class="ugc-founder-logo-mark" role="img" aria-label="Mango logo"></span>';
+      "I manage a team of real & synthetic UGC creators across TikTok and Instagram — now over 100 strong across the US and Canada (Tier 1 ONLY). Follow me for the latest AI models, Sunny Boca, and of course yummy mangos.";
+    var founderSignatureMarkup = "";
 
     if (existing) {
       var title = existing.querySelector("[data-founder-title]");
@@ -1208,13 +1264,13 @@
       '" autoplay muted loop playsinline preload="none" class="ugc-founder-media"></video>' +
       "      </div>" +
       '      <div class="ugc-founder-socials" aria-label="Founder social links">' +
-      '        <a class="ugc-founder-social-link" aria-label="Instagram" title="Instagram" href="https://instagram.com/jasonfesta" target="_blank" rel="noopener noreferrer">' +
+      '        <a class="ugc-founder-social-link" aria-label="Instagram" title="Instagram" href="https://www.instagram.com/amberinboca" target="_blank" rel="noopener noreferrer">' +
       '          <svg viewBox="0 0 16 16" class="ugc-founder-social-svg" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.087 3.269.222 2.76.42a5.5 5.5 0 0 0-1.98 1.29A5.5 5.5 0 0 0 .42 2.76c-.198.509-.333 1.09-.372 1.943C.01 5.556 0 5.829 0 8s.01 2.444.048 3.297c.039.853.174 1.434.372 1.943a5.5 5.5 0 0 0 1.29 1.98 5.5 5.5 0 0 0 1.98 1.29c.509.198 1.09.333 1.943.372C5.556 15.99 5.829 16 8 16s2.444-.01 3.297-.048c.853-.039 1.434-.174 1.943-.372a5.5 5.5 0 0 0 1.98-1.29 5.5 5.5 0 0 0 1.29-1.98c.198-.509.333-1.09.372-1.943C15.99 10.444 16 10.171 16 8s-.01-2.444-.048-3.297c-.039-.853-.174-1.434-.372-1.943a5.5 5.5 0 0 0-1.29-1.98A5.5 5.5 0 0 0 13.24.42c-.509-.198-1.09-.333-1.943-.372C10.444.01 10.171 0 8 0zm0 1.44c2.133 0 2.389.008 3.227.046.775.035 1.195.165 1.475.274.37.144.634.316.911.593.277.277.449.54.593.911.109.28.239.7.274 1.475.038.838.046 1.094.046 3.227s-.008 2.389-.046 3.227c-.035.775-.165 1.195-.274 1.475a4.06 4.06 0 0 1-.593.911 4.06 4.06 0 0 1-.911.593c-.28.109-.7.239-1.475.274-.838.038-1.094.046-3.227.046s-2.389-.008-3.227-.046c-.775-.035-1.195-.165-1.475-.274a4.06 4.06 0 0 1-.911-.593 4.06 4.06 0 0 1-.593-.911c-.109-.28-.239-.7-.274-1.475C1.448 10.389 1.44 10.133 1.44 8s.008-2.389.046-3.227c.035-.775.165-1.195.274-1.475.144-.37.316-.634.593-.911.277-.277.54-.449.911-.593.28-.109.7-.239 1.475-.274C5.611 1.448 5.867 1.44 8 1.44zm0 2.45A4.11 4.11 0 1 0 8 12.11 4.11 4.11 0 0 0 8 3.89zm0 6.78A2.67 2.67 0 1 1 8 5.33a2.67 2.67 0 0 1 0 5.34zm4.273-7.93a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92z"/></svg>' +
       "        </a>" +
-      '        <a class="ugc-founder-social-link" aria-label="TikTok" title="TikTok" href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">' +
+      '        <a class="ugc-founder-social-link" aria-label="TikTok" title="TikTok" href="http://tiktok.com/@amberinboca" target="_blank" rel="noopener noreferrer">' +
       '          <svg viewBox="0 0 16 16" class="ugc-founder-social-svg" aria-hidden="true"><path d="M9 0h2a3 3 0 0 0 3 3v2a5 5 0 0 1-3-1v5.5A4.5 4.5 0 1 1 6.5 5v2.1a2.4 2.4 0 1 0 2.5 2.4z"/></svg>' +
       "        </a>" +
-      '        <a class="ugc-founder-social-link" aria-label="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/jasonfesta/" target="_blank" rel="noopener noreferrer">' +
+      '        <a class="ugc-founder-social-link" aria-label="LinkedIn" title="LinkedIn" href="https://www.linkedin.com/in/amberfesta/" target="_blank" rel="noopener noreferrer">' +
       '          <svg viewBox="0 0 16 16" class="ugc-founder-social-svg" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708C16 15.487 15.474 16 14.825 16H1.175C.526 16 0 15.487 0 14.854V1.146zM4.943 13.5V6.169H2.542V13.5h2.401zm-1.2-8.332c.837 0 1.358-.554 1.358-1.248-.015-.709-.521-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.332V9.359c0-.222.016-.444.082-.603.178-.444.582-.904 1.261-.904.89 0 1.245.682 1.245 1.682V13.5h2.401V9.256c0-2.273-1.213-3.33-2.834-3.33-1.306 0-1.87.718-2.193 1.222h.016V6.169H6.227c.03.645 0 7.331 0 7.331h2.401z"/></svg>' +
       "        </a>" +
       "      </div>" +
@@ -1230,50 +1286,19 @@
     if (!section) return;
 
     var heading = section.querySelector("header h2");
-    if (heading) heading.textContent = "Chat with us";
+    if (heading) heading.textContent = "Chat with Amber";
 
     var list = section.querySelector(".divide-y");
     if (!list) return;
 
-    var rows = qsa("a", list);
-    var templateRow = rows[0] || null;
-
-    qsa("a", list).forEach(function (row) {
-      row.remove();
-    });
-
-    var callRow = null;
-      var discordRow = null;
-    if (templateRow) {
-      callRow = templateRow.cloneNode(true);
-      callRow.setAttribute("href", "https://cal.com/jasonfesta");
-      callRow.setAttribute("target", "_blank");
-      callRow.setAttribute("rel", "noopener noreferrer");
-
-      var callName = callRow.querySelector(".min-w-0.flex-1 span");
-      if (callName) callName.textContent = "Book a call";
-
-      var callMeta = callRow.querySelector(".hidden.sm\\:inline-block");
-      if (callMeta) callMeta.textContent = "Schedule";
-
-      discordRow = templateRow.cloneNode(true);
-      discordRow.setAttribute("href", DISCORD_SUPPORT_URL);
-      discordRow.setAttribute("target", "_blank");
-      discordRow.setAttribute("rel", "noopener noreferrer");
-
-      var discordName = discordRow.querySelector(".min-w-0.flex-1 span");
-      if (discordName) discordName.textContent = "Support";
-
-      var discordMeta = discordRow.querySelector(".hidden.sm\\:inline-block");
-      if (discordMeta) discordMeta.textContent = "Discord";
-    }
-
-    [callRow, discordRow].forEach(function (row) {
-      if (!row) return;
-      var wrapper = document.createElement("div");
-      wrapper.appendChild(row);
-      list.appendChild(wrapper);
-    });
+    list.className = "ugc-contact-buttons";
+    list.innerHTML =
+      '<a href="' +
+      CAL_BOOKING_URL +
+      '" target="_blank" rel="noopener noreferrer">Book a Call with Amber</a>' +
+      '<a href="' +
+      DISCORD_SUPPORT_URL +
+      '" target="_blank" rel="noopener noreferrer">Join Amber\'s Discord</a>';
   }
 
   function syncFooterLocation() {
@@ -1617,6 +1642,11 @@
     window.open(destination, "_blank", "noopener,noreferrer");
   }
 
+  function revealHomeSurface() {
+    document.documentElement.classList.remove("ugc-booting");
+    document.documentElement.classList.add("ugc-ready");
+  }
+
   function applyHomeSurface() {
     ensureTopHeader();
     ensureHeadlineArea();
@@ -1633,6 +1663,7 @@
     consumePreloadedFont();
     setupLazyVideos();
     startHeroHeadlineWordRotation();
+    revealHomeSurface();
   }
 
   function runStabilizedPasses() {
