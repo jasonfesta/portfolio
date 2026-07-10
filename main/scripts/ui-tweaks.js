@@ -542,7 +542,6 @@
     var socialRows = [
       { label: "X", href: "https://x.com/jasonfesta", handle: "jasonfesta" },
       { label: "Cursor", href: "https://cursor.com/@jasonfesta", handle: "jasonfesta" },
-      { label: "GitHub", href: "https://github.com/jasonfesta", handle: "jasonfesta" },
       { label: "Reddit", href: "https://www.reddit.com/user/jasonfesta/", handle: "jasonfesta" },
       { label: "LinkedIn", href: "https://www.linkedin.com/in/jasonfesta/", handle: "jasonfesta" },
     ];
@@ -935,6 +934,11 @@
     });
   }
 
+  function revealHomeSurface() {
+    document.documentElement.classList.add("home-ready");
+    document.documentElement.classList.remove("home-prehide");
+  }
+
   function applyHomeSurface() {
     syncFavicon();
     normalizeBrandAndIntro();
@@ -948,6 +952,7 @@
     syncFooterLocation();
     syncChatCardToDiscord();
     resumeShelfVideos();
+    revealHomeSurface();
   }
 
   function startObserver() {
