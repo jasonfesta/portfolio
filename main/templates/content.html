@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{content.title}} - {{site.title}}</title>
+    <meta name="description" content="{{content.summary}}" />
+    <link rel="stylesheet" href="/pages/products/_product.css?v=3" />
+  </head>
+  <body class="project-page project-page--content">
+    <header class="reader-hero reader-hero--video">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="{{content.main_video}}" type="{{content.main_video_type}}" />
+      </video>
+    </header>
+
+    <main class="reader-wrap">
+      <a class="reader-back" href="/home.html">&#8592; Back to home</a>
+      <h1 class="reader-title">{{content.title}}</h1>
+      <p class="reader-subtitle">{{content.subtitle}}</p>
+      <span class="product-pill">Content</span>
+      <hr class="reader-rule" />
+
+      <article class="reader-body darwin-sections">
+        {{content.all_text}}
+        {{content.style_media_area}}
+        {{content.design_media_area}}
+        {{content.channels}}
+        {{content.system_media_area}}
+        {{content.team}}
+      </article>
+    </main>
+  </body>
+</html>

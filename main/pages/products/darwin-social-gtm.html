@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Darwin - Jason Festa</title>
+    <meta name="description" content="AI product placement in creator videos across major social platforms." />
+    <link rel="stylesheet" href="/pages/products/_product.css?v=4" />
+    <style>
+      .reader-hero-empty {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #161616;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="reader-hero">
+      <div class="reader-hero-empty" aria-hidden="true"></div>
+    </header>
+    <main class="reader-wrap">
+      <a class="reader-back" href="/">&#8592; Back to home</a>
+      <h1 class="reader-title">Darwin (a16z speedrun)</h1>
+      <p class="reader-subtitle">Figma, Cursor, Opus, Remotion, Fal</p>
+      <span class="product-pill">Project</span>
+      <hr class="reader-rule" />
+      <article class="reader-body darwin-sections">
+        <h2>Role</h2>
+        <p>I led creative direction and design for Darwin, hands-on across the entire go-to-market stack: branding, web, social, and motion. I worked directly with the founder, Sanjit Juneja, on the bet the whole company is built on: that the future of AI is multiplayer, with networks that connect brands, creators, and consumers, rather than tools that serve one person at a time.</p>
+
+        <h2>Generations</h2>
+        <div class="darwin-brand-grid" aria-label="Generations grid">
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 1"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 2"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 3"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 4"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 5"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 6"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 7"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 8"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 9"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 10"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 11"></div>
+          <div class="darwin-brand-grid-card is-empty" aria-label="Generation slot 12"></div>
+        </div>
+      </article>
+    </main>
+    <script>
+      (function () {
+        var video = document.getElementById("darwin-header-video");
+        if (!video) return;
+        video.muted = true;
+        video.defaultMuted = true;
+        video.playsInline = true;
+
+        function ensurePlay() {
+          try {
+            var p = video.play();
+            if (p && typeof p.catch === "function") p.catch(function () {});
+          } catch (_e) {}
+        }
+
+        ensurePlay();
+        video.addEventListener("loadeddata", ensurePlay);
+        video.addEventListener("canplay", ensurePlay);
+        window.addEventListener("pageshow", ensurePlay);
+        document.addEventListener("visibilitychange", function () {
+          if (!document.hidden) ensurePlay();
+        });
+
+        video.addEventListener("ended", function () {
+          try {
+            video.currentTime = 0;
+            ensurePlay();
+          } catch (_e) {}
+        });
+      })();
+    </script>
+  </body>
+</html>

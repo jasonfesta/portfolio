@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{site.title}}</title>
+    <meta name="description" content="{{site.description}}" />
+    <link rel="stylesheet" href="/styles/ui-tweaks.css" />
+    <link rel="stylesheet" href="/styles/home.css" />
+  </head>
+  <body class="site-home">
+    <main id="home-page">
+      <section id="home-intro" class="container">
+        <h1>{{home.hero_title}}</h1>
+        <p>{{home.intro_line_1}}</p>
+        <p>{{home.intro_line_2}}</p>
+        <p>{{home.intro_line_3}}</p>
+      </section>
+
+      <section id="home-products" class="container">
+        <header>
+          <h2>Product</h2>
+        </header>
+        <!-- build inserts product cards from content/site/home.md -->
+        {{home.product_cards}}
+      </section>
+
+      <section id="home-content" class="container">
+        <header>
+          <h2>Content</h2>
+        </header>
+        <!-- build inserts content cards from content/site/home.md -->
+        {{home.content_cards}}
+      </section>
+
+      <section id="home-links" class="container">
+        <header>
+          <h2>Links</h2>
+        </header>
+        <!-- build inserts links from content/site/home.md -->
+        {{home.links}}
+      </section>
+    </main>
+  </body>
+</html>
