@@ -178,9 +178,9 @@
     introHeading.style.opacity = "1";
     var introParagraphs = qsa("p.text-foreground", introHeading.parentElement);
     var introCopy = [
-      "I help early-stage startups and brands go-to-market with hands-on design, content, & motion, usually all three at once.",
+      "I help early-stage startups & brands go-to-market with hands-on design, content, & motion, usually all three at once.",
       "Currently: I'm designing with Figma, Fal, Cursor, & Remotion.",
-      "Recent Highlights: 100M+ GIPHY views, 7K+ Karma, and 55.3B tokens burned.",
+      "Recent Highlights: 100M+ GIPHY views, 7K+ Karma, & 55.3B tokens burned.",
     ];
     introParagraphs.forEach(function (p, index) {
       if (index < introCopy.length) {

@@ -8,9 +8,9 @@
   },
   "hero_title": "Jason Festa",
   "intro_copy": [
-    "I help early-stage products and brands go-to-market with AI with design, content, & motion, usually all three at once.",
+    "I help early-stage products & brands go-to-market with AI with design, content, & motion, usually all three at once.",
     "Currently: I'm designing with Figma, Fal, Opus, Codex, Cursor, & Remotion.",
-    "Highlights: 100M GIPHY views, 7K+ Karma, and 55.3B tokens (Opus & Codex)."
+    "Highlights: 100M GIPHY views, 7K+ Karma, & 55.3B tokens (Opus & Codex)."
   ],
   "links": [
     { "label": "X", "handle": "jasonfesta", "url": "https://x.com/jasonfesta" },
