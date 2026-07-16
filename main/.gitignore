@@ -1,0 +1,4 @@
+# Local backup/quarantine artifacts (never commit — caused large-file push failures before)
+video-backups/
+_restore-backups/
+.DS_Store
