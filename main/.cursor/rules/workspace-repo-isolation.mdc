@@ -1,0 +1,30 @@
+---
+description: Enforce strict isolation between the portfolio and mangoclips projects (separate repos, do not cross)
+alwaysApply: true
+---
+
+# Workspace / Repo Isolation
+
+These projects are separate static Next.js exports that look nearly identical
+(same file layout, both driven by a `scripts/ui-tweaks.js` overlay). They must
+NEVER be mixed. Identical filenames across projects are NOT interchangeable.
+
+## Canonical mapping
+
+| Workspace dir | Git remote (`origin`) | Live site | Brand marker |
+|---|---|---|---|
+| `personal/portfolio` | `github.com/jasonfesta/portfolio.git` (PUBLIC) | jasonfesta.com | `PAGE_TITLE_TEXT`/heading = "Jason Festa" / "Creative Director" |
+| `personal/mangoclips` | `github.com/jasonfesta/mangoclips.git` (PRIVATE) | — | `PAGE_TITLE_TEXT = "Mango Clips"`, "Chat with Amber" |
+
+## Before editing files or running git push/pull/merge
+
+1. Run `git remote get-url origin` and confirm it matches the repo for THIS workspace above.
+2. Grep the overlay to confirm the brand: `rg "PAGE_TITLE_TEXT" scripts/ui-tweaks.js`.
+   - If you are in `portfolio` and it says `"Mango Clips"` (or vice-versa), STOP and tell the user — the workspace is contaminated.
+3. If the origin or brand does not match the intended project, STOP. Do not edit or push.
+
+## Hard rules
+
+- Do NOT add a remote that points at the other project's repo.
+- Do NOT `pull`/`merge`/`push` between `portfolio.git` and `mangoclips.git`.
+- When the user names a project, verify you are in that project's workspace before acting.

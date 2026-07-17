@@ -1,0 +1,2 @@
+# Deploy secrets — never commit
+.ftp-deploy.env

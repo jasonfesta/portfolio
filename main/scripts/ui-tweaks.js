@@ -29,7 +29,7 @@
     }),
     createPost({
       date: "GTM",
-      title: "Wayve",
+      title: "Wayve (a16z)",
       body: "Figma, Fal, Remotion",
       page: "/pages/products/wayve-gtm.html",
       videoSrc: "/assets/products/home-card-wayve.webm",
@@ -39,10 +39,10 @@
   var MOTION_POSTS = [
     createPost({
       date: "Social",
-      title: "OpenSea",
-      body: "Veo, Hailuo, Udio, Figma, After Effects",
-      page: "/pages/products/opensea-gtm.html",
-      videoSrc: "/assets/products/home-card-opensea.webm",
+      title: "Rubbrband (Y Combinator)",
+      body: "Fal, Cursor, Remotion, FFmpeg",
+      page: "/pages/products/rubbrband-gtm.html",
+      videoSrc: "/assets/products/home-card-rubbrband.webm?v=3",
     }),
     createPost({
       date: "UGC",
@@ -57,6 +57,13 @@
       body: "Fal, Cursor, Remotion, FFmpeg",
       page: "/pages/products/darwin-ads-gtm.html",
       videoSrc: "/assets/products/home-card-ai-ads.webm",
+    }),
+    createPost({
+      date: "Social",
+      title: "OpenSea",
+      body: "Veo, Hailuo, Udio, Figma, After Effects",
+      page: "/pages/products/opensea-gtm.html",
+      videoSrc: "/assets/products/home-card-opensea.webm",
     }),
   ];
 
