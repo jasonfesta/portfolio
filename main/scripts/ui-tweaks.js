@@ -38,13 +38,6 @@
 
   var MOTION_POSTS = [
     createPost({
-      date: "Social",
-      title: "Rubbrband (Y Combinator)",
-      body: "Fal, Cursor, Remotion, FFmpeg",
-      page: "/pages/products/rubbrband-gtm.html",
-      videoSrc: "/assets/products/home-card-rubbrband.webm?v=3",
-    }),
-    createPost({
       date: "UGC",
       title: "AI UGC",
       body: "Fal, Cursor, Remotion, FFmpeg",
@@ -60,11 +53,18 @@
     }),
     createPost({
       date: "Social",
-      title: "OpenSea",
-      body: "Veo, Hailuo, Udio, Figma, After Effects",
-      page: "/pages/products/opensea-gtm.html",
-      videoSrc: "/assets/products/home-card-opensea.webm",
+      title: "Rubbrband (YC)",
+      body: "Fal, Cursor, Remotion, FFmpeg",
+      page: "/pages/products/rubbrband-gtm.html",
+      videoSrc: "/assets/products/home-card-rubbrband.webm?v=3",
     }),
+    // createPost({
+    //   date: "Social",
+    //   title: "OpenSea",
+    //   body: "Veo, Hailuo, Udio, Figma, After Effects",
+    //   page: "/pages/products/opensea-gtm.html",
+    //   videoSrc: "/assets/products/home-card-opensea.webm",
+    // }),
   ];
 
   var SMALL_CAPS_BRAND_TITLES = {
